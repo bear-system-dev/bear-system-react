@@ -1,0 +1,24 @@
+.header {
+  align-items: center;
+  background: var(--cinza-100);
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 20%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navlink {
+  flex-shrink: 0;
+}
+
+.header.header--contrate {
+  background-color: transparent;
+  border-bottom: 2px solid #ececec;
+  min-height: 5rem;
+  padding: 0 2rem;
+  position: relative;
+}
