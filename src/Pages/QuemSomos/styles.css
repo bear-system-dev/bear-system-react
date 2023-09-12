@@ -25,3 +25,8 @@
   line-height: 1.6;
   max-width: 36rem;
 }
+
+.about__stars-title {
+  font-weight: 700;
+  padding: 2rem 0;
+}

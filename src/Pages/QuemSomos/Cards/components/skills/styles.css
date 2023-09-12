@@ -1,0 +1,23 @@
+.card__skills {
+  background-color: var(--cinza-100);
+  border-top: 1px solid var(--cinza-300);
+  border-radius: 6px;
+  min-height: 9rem;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.card__skills-title {
+  margin: 0.5rem 0 0.25rem;
+  text-transform: uppercase;
+  }
+
+  .card__skills-item {
+    border: 1px solid var(--verde-300);
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 0.75rem;
+    margin: 0 0.3rem 0.3rem 0;
+    padding: 0.3rem;
+    }

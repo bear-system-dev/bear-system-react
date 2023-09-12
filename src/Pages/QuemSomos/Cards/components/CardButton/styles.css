@@ -1,0 +1,38 @@
+.card__button--primary {
+  background-color: var(--cinza-900);
+  border: 1px solid var(--cinza-900);
+  border-radius: 3px;
+  color: var(--branco);
+  padding: 0.625rem 1.5rem;
+}
+
+.card__button--primary:hover {
+  background-color: var(--verde-500);
+  border: 1px solid var(--verde-500);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.card__button--primary:disabled {
+  cursor: not-allowed;
+}
+
+.card__button--secondary {
+  background-color: transparent;
+  border: 1px solid var(--preto);
+  border-radius: 3px;
+  color: var(--preto);
+  padding: 0.625rem 1.5rem;
+}
+
+.card__button--secondary:hover {
+  background-color: var(--verde-500);
+  color: var(--branco);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.card__button--secondary:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
