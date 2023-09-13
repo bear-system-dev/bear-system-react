@@ -3,13 +3,17 @@ import logo from '../../assets/images/logo.svg'
 import { Navbar } from '../Navbar'
 import './styles.css'
 
-export function Header() {
+interface HeaderStyleProps {
+  variant: 'default' | 'alternative'
+}
+
+export function Header({ variant }: HeaderStyleProps) {
   return (
-    <header className="header">
+    <header className={`header ${variant}`}>
       <NavLink to="/" title="home" className="navlink">
         <img src={logo} alt="logo Bear System" />
       </NavLink>
-      <Navbar />
+      {variant === 'default' && <Navbar />}
     </header>
   )
 }

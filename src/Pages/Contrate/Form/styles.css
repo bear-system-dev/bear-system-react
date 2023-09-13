@@ -1,0 +1,42 @@
+.contrate__formulario {
+  padding: 5rem;
+}
+
+.form__fields-line {
+  display: grid;
+  grid-template-columns: 48% 48%;
+}
+
+.form__field-container {
+  margin: 0 1rem 4vh;
+}
+
+.form__field-container--full-width {
+  grid-column: span 2;
+}
+
+.form__field-label {
+  color: var(--cinza-600);
+  display: flex;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.form__field-input {
+  background-color: #fff;
+  border: 1px solid var(--cinza-200);
+  font-size: 1.1rem;
+  height: 7vh;
+  max-height: 3.75rem;
+  min-height: 2.5rem;
+  padding: 0.7rem;
+  width: 100%;
+}
+
+.form__field-input::placeholder {
+  visibility: hidden;
+}
+
+.form__field-input:focus {
+  outline-color: var(--verde-300);
+}

@@ -1,0 +1,26 @@
+.form-and-clients-container {
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  height: 87vh;
+}
+
+.form__title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0 auto 5vh;
+  max-width: 30rem;
+  text-align: center;
+  -webkit-text-stroke: .5px;
+}
+
+.form {
+  padding: 5rem;
+}
+
+.clients {
+  background-image: url(../../assets/images/bg-08.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+}

@@ -15,7 +15,7 @@
   flex-shrink: 0;
 }
 
-.header.header--contrate {
+.header.alternative {
   background-color: transparent;
   border-bottom: 2px solid #ececec;
   min-height: 5rem;

@@ -4,7 +4,16 @@ import { Header } from './Header'
 export function DefaultLayout() {
   return (
     <>
-      <Header />
+      <Header variant="default" />
+      <Outlet />
+    </>
+  )
+}
+
+export function AlternativeLayout() {
+  return (
+    <>
+      <Header variant="alternative" />
       <Outlet />
     </>
   )
