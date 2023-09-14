@@ -75,21 +75,21 @@
   padding: 0.75rem;
 }
 
-.card__background--primary::before {
+.card__background:nth-child(n):before {
   background-image: url(../../../assets/images/card-backgrounds/card-bg-19.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
 }
 
-.card__background--secondary::before {
+.card__background:nth-child(3n-1):before {
   background-image: url(../../../assets/images/card-backgrounds/card-bg-18.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: -1;
 }
 
-.card__background--tertiary::before {
+.card__background:nth-child(3n)::before {
   background-image: url(../../../assets/images/card-backgrounds/card-bg-13.svg);
   background-repeat: no-repeat;
   background-size: cover;

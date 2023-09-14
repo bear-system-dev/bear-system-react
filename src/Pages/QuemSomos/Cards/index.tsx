@@ -30,14 +30,8 @@ export function Cards() {
   return (
     <div className="card-grid-container">
       {userProfileData.map((user) => {
-        const randomVariant = ['primary', 'secondary', 'tertiary'][
-          Math.floor(Math.random() * 3)
-        ]
         return (
-          <div
-            key={user.id}
-            className={`card card__background--${randomVariant}`}
-          >
+          <div key={user.id} className="card card__background">
             <img
               className="card__avatar"
               src={user.avatar_url}
