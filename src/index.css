@@ -37,6 +37,12 @@ img {
   max-width: 100%;
 }
 
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
 :root {
   --preto: #181818;
   --branco: #FFFFFF;
@@ -53,7 +59,7 @@ img {
   --verde-300: #00b37e;
   --verde-500: #00875f;
   --slate-500: #54647A;
-  --vermelho-700: #b91c1c;
+  --alert: #b91c1c;
 
   --fonte: 'Open Sans', sans-serif;
 }
