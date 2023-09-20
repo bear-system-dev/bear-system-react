@@ -73,7 +73,9 @@ export function Form() {
           })}
         </div>
       </div>
-      <button type="submit">começar</button>
+      <button type="submit" className="form__botao">
+        iniciar
+      </button>
     </form>
   )
 }

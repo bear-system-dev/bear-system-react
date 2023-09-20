@@ -1,4 +1,4 @@
-import { Button } from '../../../../components/Button'
+import { Button } from '../../../../layout/Navbar/components/Button'
 import './styles.css'
 
 export function Hero() {

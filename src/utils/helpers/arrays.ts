@@ -54,7 +54,7 @@ export const githubUsersList = [
   'bradtraversy',
   'scylladb',
   'rafaballerini',
-  'cppbrasil',
+  'pokemaobr',
   'erickwendel',
   'matz',
   'levxyca',

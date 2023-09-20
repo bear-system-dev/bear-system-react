@@ -1,12 +1,15 @@
-import { mockSkills } from '../../../../../utils/mocks/shuffleSkills'
 import './styles.css'
 
-export function CardSkills() {
+interface CardSkillsProps {
+  skills: string[]
+}
+
+export function CardSkills({ skills }: CardSkillsProps) {
   return (
     <div className="card__skills">
       <h6 className="card__skills-title">Skills</h6>
       <ul>
-        {mockSkills.map((skill) => {
+        {skills.map((skill) => {
           return (
             <li key={skill} className="card__skills-item">
               {skill}

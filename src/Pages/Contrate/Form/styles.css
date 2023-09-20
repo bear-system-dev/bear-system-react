@@ -96,6 +96,20 @@
   font-size: 0.875rem;
 }
 
-button {
-  margin-top: 20rem;
+.form__botao {
+  appearance: none;
+  background-color: var(--verde-500);
+  border: none;
+  color: var(--branco);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 2rem 1rem 0;
+  padding: 1.25rem 3.5rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.form__botao:hover {
+  background-color: var(--verde-300);
 }

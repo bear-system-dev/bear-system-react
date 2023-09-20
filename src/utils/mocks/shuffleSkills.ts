@@ -12,4 +12,7 @@ function shuffleSkillsArray<T>(skillsArray: T[]): T[] {
   return shuffledSkillsArray
 }
 
-export const mockSkills = shuffleSkillsArray(skillsList).slice(0, 10)
+export function generateRandomSkills(): string[] {
+  const shuffledSkillsArray = shuffleSkillsArray(skillsList)
+  return shuffledSkillsArray.slice(0, 10)
+}

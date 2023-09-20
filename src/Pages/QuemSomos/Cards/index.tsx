@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import {
   UserProfileDataProps,
   fetchGitHubUserProfilesByUsernames,
-} from '../../../services/data-utils/FetchRandomUsers'
+} from '../../../services/data-utils/FetchGitHubUsers'
 import { githubUsersList } from '../../../utils/helpers/arrays'
+import { generateRandomSkills } from '../../../utils/mocks/shuffleSkills'
 import { CardButton } from './components/CardButton'
 import { CardSkills } from './components/skills'
 import './styles.css'
@@ -16,9 +17,9 @@ export function Cards() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const randomUserProfiles =
+        const githubUserProfiles =
           await fetchGitHubUserProfilesByUsernames(githubUsersList)
-        setUserProfileData(randomUserProfiles)
+        setUserProfileData(githubUserProfiles)
       } catch (error) {
         console.error('Error fetching user data', error)
       }
@@ -30,6 +31,7 @@ export function Cards() {
   return (
     <div className="card-grid-container">
       {userProfileData.map((user) => {
+        const randomSkills = generateRandomSkills()
         return (
           <div key={user.id} className="card card__background">
             <img
@@ -41,10 +43,18 @@ export function Cards() {
             <h6 className="card__username">{user.login}</h6>
             <span className="card__description">{user.bio}</span>
             <div className="card__buttons-container">
-              <CardButton variant="primary" label="GitHub" />
-              <CardButton variant="secondary" label="Adicionar na Squad" />
+              <CardButton
+                link={user.html_url}
+                variant="primary"
+                label="GitHub"
+              />
+              <CardButton
+                link="#"
+                variant="secondary"
+                label="Adicionar na Squad"
+              />
             </div>
-            <CardSkills />
+            <CardSkills skills={randomSkills} />
           </div>
         )
       })}
