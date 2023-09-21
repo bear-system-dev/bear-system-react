@@ -1,0 +1,50 @@
+.areas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.areas__card {
+  border-radius: 6px;
+	color: var(--preto);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 5rem;
+	max-width: 100%;
+  padding: 1.75rem;
+	position: relative;
+	width: 23rem;
+}
+
+.areas__card-image {
+  border-radius: 8px;
+  max-height: 15rem;
+  width: 100%;
+}
+
+.areas__card-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.areas__card-title:hover{
+  color: var(--laranja-500);
+  cursor: default;
+}
+
+.areas__card-skills {
+  color: var(--cinza-600);
+}
+
+.areas__card-skills li {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 2;
+}
+
+.areas__card-skills svg {
+  color: var(--laranja-500);
+  max-height: 20px;
+}

@@ -1,3 +1,4 @@
+import { AreasOfWork } from './AreasOfWork'
 import { Cards } from './Cards'
 import './styles.css'
 
@@ -9,6 +10,8 @@ export function QuemSomos() {
           <h1 className="about__title">{aboutTitle}</h1>
           <h3 className="about__subtitle">{aboutSubtitle}</h3>
         </div>
+        <AreasOfWork />
+
         <h2 className="about__stars-title">{aboutStarsTitle}</h2>
         <Cards />
       </section>
