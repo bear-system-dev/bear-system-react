@@ -34,10 +34,10 @@ const contrateFormSchema = z.object({
     .transform((phone) => phone.replace(/[^0-9]/g, '')),
 
   referral: z.string(),
-  needs: z.string(),
-  duration: z.string(),
-  priority: z.string(),
-  skills: z.string(),
+  needs: z.string().nonempty({ message: 'Selecione uma opção' }),
+  duration: z.string().nonempty({ message: 'Selecione uma opção' }),
+  priority: z.string().nonempty({ message: 'Selecione uma opção' }),
+  skills: z.string().nonempty({ message: 'Selecione uma opção' }),
 })
 
 type FormProps = z.infer<typeof contrateFormSchema>
@@ -122,9 +122,6 @@ export function Form() {
             id="company"
             {...register('company', { required: true })}
           />
-          {errors.company && (
-            <span className="form__error">{errors.company.message}</span>
-          )}
         </div>
 
         <div className="form__field-container">
@@ -137,9 +134,6 @@ export function Form() {
             id="role"
             {...register('role', { required: true })}
           />
-          {errors.role && (
-            <span className="form__error">{errors.role.message}</span>
-          )}
         </div>
 
         <div className="form__field-container">
@@ -170,9 +164,6 @@ export function Form() {
             id="referral"
             {...register('referral', { required: true })}
           />
-          {errors.referral && (
-            <span className="form__error">{errors.referral.message}</span>
-          )}
         </div>
 
         <div className="form__field-container">
