@@ -1,8 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
+import { ChangeEvent } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { InputMask } from './components/MaskedInput'
 import './styles.css'
 
 const contrateFormSchema = z.object({
@@ -16,7 +15,7 @@ const contrateFormSchema = z.object({
       name.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase()),
     ),
 
-  email: z.string().email(),
+  email: z.string().email({ message: 'Digite um e-mail válido.' }),
 
   company: z
     .string()
@@ -29,9 +28,10 @@ const contrateFormSchema = z.object({
   phone: z
     .string()
     .min(14, {
-      message: 'Telefone inválido',
+      message: 'Digite um número de telefone válido.',
     })
-    .max(15, { message: 'Telefone inválido' }),
+    .max(15)
+    .transform((phone) => phone.replace(/[^0-9]/g, '')),
 
   referral: z.string(),
   needs: z.string(),
@@ -47,12 +47,36 @@ export function Form() {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<FormProps>({ resolver: zodResolver(contrateFormSchema) })
-
-  const [maskedInputValue, setMaskedInputValue] = useState('')
 
   const onSubmit = (data: FormProps) => {
     console.log(data)
+  }
+
+  const phoneMask = (phoneNumber: string) => {
+    if (!phoneNumber) return ''
+    phoneNumber = phoneNumber.replace(/\D/g, '')
+    phoneNumber = phoneNumber.replace(/(\d{2})(\d)/, '($1) $2')
+    phoneNumber = phoneNumber.replace(/(\d)(\d{4})$/, '$1-$2')
+    return phoneNumber
+  }
+
+  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const formattedPhone = phoneMask(value)
+    const isValid = formattedPhone.length >= 14
+
+    const errorOptions = isValid
+      ? {}
+      : {
+          type: 'manual',
+          message: 'Digite um número de telefone válido.',
+        }
+
+    setError('phone', errorOptions)
+
+    e.target.value = formattedPhone
   }
 
   return (
@@ -123,15 +147,14 @@ export function Form() {
             <span>Número de telefone</span>
           </label>
 
-          <InputMask
-            name="phone"
-            mask={['(99) 9999-9999', '(99) 99999-9999']}
-            type="text"
-            onChange={setMaskedInputValue}
-            value={maskedInputValue}
+          <input
             className="form__field-input"
+            type="tel"
+            {...register('phone', { required: true })}
+            onChange={handlePhoneChange}
+            minLength={14}
+            maxLength={15}
           />
-
           {errors.phone && (
             <span className="form__error">{errors.phone.message}</span>
           )}

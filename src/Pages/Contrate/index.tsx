@@ -1,4 +1,4 @@
-import { Form } from './Form'
+import { Form } from './components/Form'
 import './styles.css'
 
 export function Contrate() {
