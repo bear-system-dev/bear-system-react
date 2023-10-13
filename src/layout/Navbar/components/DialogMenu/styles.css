@@ -1,4 +1,5 @@
 .dialog-menu__open {
+  background-color: transparent;
   display: none;
   position: absolute;
   left: 2rem;
@@ -35,6 +36,7 @@
 
   .dialog-menu__close {
     appearance: none;
+    background-color: transparent;
     border: none;
     position: absolute;
     left: 2rem;
