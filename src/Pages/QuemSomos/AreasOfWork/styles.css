@@ -48,3 +48,38 @@
   color: var(--laranja-500);
   max-height: 20px;
 }
+
+@media screen and (max-width: 1600px) {
+  .areas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .areas {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .areas__card {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    width: auto;
+  }
+
+  .areas__card-title {
+    font-size: 1.5rem;
+  }
+
+  .areas__card-skills li {
+    gap: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .areas__card-skills svg {
+    max-height: 16px;
+  }
+}

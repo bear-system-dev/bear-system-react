@@ -24,3 +24,23 @@
   background-size: cover;
   opacity: 0.2;
 }
+
+@media screen and (max-width: 1600px) {
+  .form-and-clients-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .clients {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form {
+    padding: 1rem 0.5rem;
+  }
+  .form__title {
+    font-size: 1.25rem;
+  }
+}

@@ -82,3 +82,21 @@
   background-color: var(--grid-cinza-50);
   grid-area: 6 / 4 / 7 / 5; 
 }
+
+@media screen and (max-width: 1600px) {
+  .tools {
+    padding: 0 10vw;
+  }  
+}
+
+@media screen and (max-width: 1200px) {
+  .tools {
+    padding: 0 2rem;
+  }  
+}
+
+@media screen and (max-width: 1000px) {
+  .tools {
+    display: none;
+  }
+}

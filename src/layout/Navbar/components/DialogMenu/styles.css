@@ -1,0 +1,43 @@
+.dialog-menu__open {
+  display: none;
+  position: absolute;
+  left: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .dialog-menu__open {
+    appearance: none;
+    border: none;
+    display: block;
+    z-index: 99;
+  }
+
+  .dialog-menu-overlay {
+    position: 'fixed';
+    inset: 0;
+  }
+
+  .dialog-menu-content {
+    background: var(--cinza-100);
+    box-shadow: 1px 3px 6px 0px rgba(171, 171, 171, 0.54);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    left: 0;
+    max-width: 15rem;
+    padding-top: 3.125rem;
+    position: fixed;
+    transition: left 0.2s ease-out 0s;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .dialog-menu__close {
+    appearance: none;
+    border: none;
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+  }
+}

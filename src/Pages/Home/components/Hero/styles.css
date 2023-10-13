@@ -47,3 +47,25 @@
   line-height: 1.25;
   max-width: 28rem;
 }
+
+@media screen and (max-width: 1600px) {
+  .hero {
+    padding: 0 10vw;
+  }  
+}
+
+@media screen and (max-width: 1200px) {
+  .hero {
+    padding: 0 2rem;
+  }  
+}
+
+@media screen and (max-width: 1000px) {
+  .call-to-action__title {
+    font-size: 2rem;
+  }  
+
+  .call-to-action__subtitle {
+    font-size: 1rem;
+  }
+}

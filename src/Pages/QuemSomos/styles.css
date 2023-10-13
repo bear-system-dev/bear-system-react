@@ -30,3 +30,28 @@
   font-weight: 700;
   padding: 2rem 0;
 }
+
+@media screen and (max-width: 1600px) {
+  .about-container {
+    padding: 0 10vw;
+  }  
+}
+
+@media screen and (max-width: 1200px) {
+  .about-container {
+    padding: 0 2rem;
+  }  
+}
+
+@media screen and (max-width: 650px) {
+  .about__title {
+    font-size: 3.5rem;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .about__subtitle {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+}

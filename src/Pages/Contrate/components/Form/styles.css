@@ -8,14 +8,14 @@
 }
 
 .form__field-container {
-  margin: 0 1rem 4vh;
+  padding: 0 1rem 4vh;
 }
 
 .form__field-container:nth-child(n+3) {
   grid-column: span 2;
 }
 
-.form__field-label{
+.form__field-label {
   color: var(--cinza-600);
   display: flex;
   font-size: 1.25rem;
@@ -113,4 +113,51 @@
 .form__error {
   color: var(--alert);
   font-size: 0.875rem;
+}
+
+@media screen and (max-width: 1600px) {
+  .form__field-container {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .form__field-container {
+    padding: 0 1rem 2vh;
+  }
+
+.form__field-label {
+  font-size: 1rem;
+}
+
+  .form__field-input {
+    font-size: 0.875rem;
+    max-height: 2rem;
+  }
+
+  .form__field-select {
+    font-size: 0.875rem;
+    max-height: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .form__field-select--arrow {
+    background-position:
+    calc(100% - 20px) calc(0.75rem + 2px),
+    calc(100% - 15px) calc(0.75rem + 2px),
+    100% 0;
+  }
+
+.form__field-select--arrow:focus {
+  background-position:
+    calc(100% - 15px) 0.75rem,
+    calc(100% - 20px) 0.75rem,
+    100% 0;
+}
+
+
+  .form__botao {
+    padding: 0.75rem 1.75rem;
+    margin: 1rem 1rem 0;
+  }
 }

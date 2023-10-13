@@ -54,3 +54,23 @@
   height: 50px;
   transform: rotate(45deg);
 }
+
+@media screen and (max-width: 1000px) {
+  .menu-list {
+    flex-direction: column;
+  }
+
+  .menu-list__item {
+    justify-content: left;
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .menu-list__item:nth-child(4) {
+    border-bottom: none;
+  }
+
+  .menu-list__item:last-child {
+    justify-content: center;
+  }
+}

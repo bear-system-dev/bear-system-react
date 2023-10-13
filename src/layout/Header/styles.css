@@ -3,16 +3,19 @@
   background: var(--cinza-100);
   display: flex;
   justify-content: space-between;
+  height: 3.75rem;
   left: 0;
   padding: 0 20%;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 10;
 }
 
 .navlink {
-  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .header.alternative {
@@ -21,4 +24,34 @@
   min-height: 5rem;
   padding: 0 2rem;
   position: relative;
+}
+
+@media screen and (max-width: 1600px) {
+  .header {
+    padding: 0 10vw;
+  }  
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    padding: 0 2rem;
+  }
+}
+
+
+@media screen and (max-width: 1000px) {
+  .header {
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navlink {
+    width: 100%;
+  }
+
+  .logo {
+    max-width: 10rem;
+  }
 }
