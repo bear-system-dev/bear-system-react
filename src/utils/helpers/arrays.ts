@@ -13,12 +13,12 @@ export const gridIconElements = [
   { icon: reactLogo, div: 2 },
   { icon: javascriptLogo, div: 3 },
   { icon: tailwindcssLogo, div: 4 },
-  { icon: nodejsLogo, div: 5 },
-  { icon: mongodbLogo, div: 6 },
-  { icon: phpLogo, div: 9 },
-  { icon: typescriptLogo, div: 10 },
+  { icon: mongodbLogo, div: 5 },
+  { icon: nodejsLogo, div: 6 },
+  { icon: expressLogo, div: 9 },
+  { icon: phpLogo, div: 10 },
   { icon: nestjsLogo, div: 11 },
-  { icon: expressLogo, div: 12 },
+  { icon: typescriptLogo, div: 12 },
   { icon: awsLogo, div: 13 },
 ]
 

@@ -2,9 +2,8 @@
   background-color: var(--cinza-100);
   border-top: 1px solid var(--cinza-300);
   border-radius: 6px;
-  min-height: 9rem;
-  overflow: hidden;
-  padding: 0.5rem 1rem;
+  min-height: 10rem;
+  padding: 0.5rem 1rem ;
   text-align: left;
 }
 

@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
-  height: 87vh;
+  min-height: 87vh;
   padding: 0rem 20%;
   position: relative;
 }

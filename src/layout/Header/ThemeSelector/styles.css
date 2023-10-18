@@ -1,0 +1,31 @@
+.theme-selector {
+  background-color: transparent !important;
+  border: none;
+  cursor: pointer;
+  padding: 0 2rem;
+  position: absolute;
+  right: 0;
+}
+
+.theme-selector svg {
+  height: auto;
+  width: 2rem;
+}
+
+@media screen and (max-width: 1200px){
+  .theme-selector {
+    position: relative;
+    padding: 0 0.5rem;
+  }
+
+  .theme-selector svg {
+    width: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .theme-selector {
+    position: absolute;
+    padding: 0 2rem;
+  }
+}

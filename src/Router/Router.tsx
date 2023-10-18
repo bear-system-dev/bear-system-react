@@ -5,7 +5,6 @@ import { Contrate } from '../Pages/Contrate'
 import { Home } from '../Pages/Home'
 import { QuemSomos } from '../Pages/QuemSomos'
 import { Solucoes } from '../Pages/Solucoes'
-import '../index.css'
 import { AlternativeLayout, DefaultLayout } from '../layout'
 
 export function Router() {

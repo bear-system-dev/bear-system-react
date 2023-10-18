@@ -1,0 +1,46 @@
+.dark {
+  .header, .header.alternative {
+    background-color: #18181b !important;
+  }
+  
+  main {
+    background-color: #27272a;
+  }
+
+  .card {
+    z-index: 0;
+    button {
+      background-color: var(--verde-500);
+      border: 1px solid var(--verde-500);
+    }
+
+    button:hover {
+      background-color: var(--verde-300) !important;
+    }
+    div {
+      background-color: #3f3f46;
+    }
+  }
+
+  .card::after {
+    background-color: var(--cinza-800);
+  }
+
+  p, li, span, a, button, span, h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+  }
+
+  input, select, textarea, select option {
+    background-color: #3f3f46;
+    border: none;
+    color: white;
+  }
+
+  .div2, .div3, .div6, .div10, .div11 {
+    background-color: #3f3f46;
+  }
+
+  .div4, .div5, .div9, .div13 {
+    background-color: #52525b;
+  }
+}

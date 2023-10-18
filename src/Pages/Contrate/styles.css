@@ -1,7 +1,6 @@
 .form-and-clients-container {
   display: grid;
   grid-template-columns: 1fr 40%;
-  height: 87vh;
 }
 
 .form__title {

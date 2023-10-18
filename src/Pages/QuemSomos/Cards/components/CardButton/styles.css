@@ -18,7 +18,7 @@
 }
 
 .card__button--secondary {
-  background-color: transparent;
+  background-color: transparent !important;
   border: 1px solid var(--preto);
   border-radius: 3px;
   color: var(--preto);
@@ -26,7 +26,7 @@
 }
 
 .card__button--secondary:hover {
-  background-color: var(--verde-500);
+  background-color: var(--verde-500) !important;
   color: var(--branco);
   cursor: pointer;
   transition: 0.3s ease-in-out;
