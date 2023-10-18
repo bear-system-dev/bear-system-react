@@ -17,7 +17,7 @@
     button:hover {
       background-color: var(--verde-300) !important;
     }
-    div {
+    div:nth-child(1) {
       background-color: #3f3f46;
     }
   }

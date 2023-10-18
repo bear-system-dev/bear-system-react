@@ -73,11 +73,18 @@
     font-size: 1.5rem;
   }
 
+  .areas__card-skills {
+    margin-left: 10vw;
+  }
+  
   .areas__card-skills li {
     gap: 0.25rem;
     font-size: 1rem;
     line-height: 1.6;
+    width: 100%;
   }
+
+ 
 
   .areas__card-skills svg {
     max-height: 16px;

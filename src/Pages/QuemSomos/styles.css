@@ -44,6 +44,10 @@
 }
 
 @media screen and (max-width: 650px) {
+  .about-container {
+    text-align: center;
+  }
+
   .about__title {
     font-size: 3.5rem;
     line-height: 1;
@@ -52,6 +56,8 @@
 
   .about__subtitle {
     font-size: 0.875rem;
-    text-align: left;
+    hyphens: auto;
+    text-align: justify;
+    word-spacing: 2px;
   }
 }
