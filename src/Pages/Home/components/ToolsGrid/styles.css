@@ -147,3 +147,22 @@
   .div12 { grid-area: 7 / 3 / 8 / 4; }
   .div13 { grid-area: 7 / 4 / 8 / 5; }
 }
+
+.dark {
+  .div2, .div3, .div6, .div10, .div11 {
+    background-color: #3f3f46;
+  }
+
+  .div4, .div5, .div9, .div13 {
+    background-color: #52525b;
+  }
+}
+.bear {
+  .div2, .div3, .div6, .div10, .div11 {
+    background-color: #3f3f46;
+  }
+
+  .div4, .div5, .div9, .div13 {
+    background-color: #52525b;
+  }
+}

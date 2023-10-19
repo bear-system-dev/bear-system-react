@@ -1,4 +1,3 @@
-import styles from '../../../../App.module.scss'
 import {
   gridIconElements,
   gridTextElements,
@@ -11,10 +10,7 @@ export function ToolsGrid() {
       <div className="tools__grid">
         {gridTextElements.map((item) => {
           return (
-            <div
-              key={item.div}
-              className={`tools__grid--call-to-action div${item.div}`}
-            >
+            <div key={item.div} className={'tools__grid--call-to-action'}>
               <h2>{item.title}</h2>
               <h3>{item.subtitle}</h3>
             </div>
@@ -22,11 +18,7 @@ export function ToolsGrid() {
         })}
         {gridIconElements.map((item) => {
           return (
-            <div
-              key={item.div}
-              className={`tools__grid--icon div${item.div} 
-               ${styles[`div${item.div}`]}`}
-            >
+            <div key={item.div} className={`tools__grid--icon div${item.div}`}>
               <img src={item.icon} alt={item.icon} />
             </div>
           )

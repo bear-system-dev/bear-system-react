@@ -42,3 +42,32 @@
     padding: 0.625rem 1rem;
   }
 }
+
+.dark {
+  .card__button--primary {
+    background-color: var(--verde-500);
+    border: 1px solid var(--verde-500);
+  }
+  .card__button--primary:hover, .card__button--secondary:hover {
+    background-color: var(--verde-300) !important;
+  }
+}
+
+.bear {
+  .card__button--primary {
+    background-color:  #000;
+    color: var(--verde-300);
+    border: 1px solid #000;
+  }
+
+  .card__button--secondary {
+    color: var(--verde-300);
+  }
+
+  .card__button--primary:hover, 
+  .card__button--secondary:hover {
+    color: #000;
+    background-color: var(--verde-500) !important;
+  }
+
+}

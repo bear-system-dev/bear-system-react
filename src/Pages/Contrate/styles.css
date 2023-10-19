@@ -43,3 +43,9 @@
     font-size: 1.25rem;
   }
 }
+
+.bear {
+  .clients {
+    opacity: 0.04;
+  }
+}

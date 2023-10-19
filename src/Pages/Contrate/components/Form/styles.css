@@ -163,3 +163,27 @@
     margin: 1rem 1rem 0;
   }
 }
+
+.dark {
+  .form__field-input, 
+  .form__field-select,
+  .form__field-select option {
+    background-color: #3f3f46;
+    border: none;
+    color: white;
+  }
+}
+
+.bear {
+  .form__field-input, 
+  .form__field-select,
+  .form__field-select option {
+    background-color: #222;
+    border: none;
+    color: var(--verde-300);
+  }
+
+  .form__field-input:focus {
+    outline-color: var(--verde-300);
+  }
+}

@@ -119,3 +119,23 @@
     width: auto;
   }
 }
+
+.dark {
+  .card {
+    z-index: 0;
+  }
+
+  .card::after {
+    background-color: var(--cinza-800);
+  } 
+}
+
+.bear {
+  .card {
+    z-index: 0;
+  }
+
+  .card::after {
+    background-color: var(--cinza-800);
+  } 
+}

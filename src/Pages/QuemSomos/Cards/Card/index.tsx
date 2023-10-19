@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import styles from '../../../../App.module.scss'
 import { generateRandomSkills } from '../../../../utils/mocks/shuffleSkills'
 import { CardButton } from '../components/CardButton'
 import { CardSkills } from '../components/skills'
@@ -24,10 +23,7 @@ export function Card({ user }: CardProps) {
   }, [])
 
   return (
-    <div
-      className={`card card__background 
-         ${styles.card}`}
-    >
+    <div className="card card__background">
       <img
         className="card__avatar"
         src={user.avatar_url}

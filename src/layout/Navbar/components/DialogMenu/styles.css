@@ -43,3 +43,15 @@
     top: 1rem;
   }
 }
+
+.dark {
+  .dialog-menu-content {
+    background-color: #18181b;
+  }
+}
+
+.bear {
+  .dialog-menu-content {
+    background-color: #000;
+  }
+}

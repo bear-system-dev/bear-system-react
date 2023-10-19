@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import styles from '../../App.module.scss'
 import logoDarkMode from '../../assets/images/logo-dark-mode.svg'
 import logo from '../../assets/images/logo.svg'
 import { useIsMobile } from '../../hooks/useIsMobile'
@@ -18,7 +17,7 @@ export function Header({ variant }: HeaderStyleProps) {
   const { theme } = useTheme()
 
   return (
-    <header className={`header ${styles.header} ${variant}`}>
+    <header className={`header ${variant}`}>
       {variant === 'default' && <DialogMenu />}
       <NavLink to="/" title="home" className="navlink">
         <img

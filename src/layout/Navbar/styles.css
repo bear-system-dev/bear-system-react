@@ -74,3 +74,29 @@
     justify-content: center;
   }
 }
+
+.dark {
+  .menu-list__item.active {
+    color: var(--verde-500) !important;
+  }
+}
+
+.bear {
+  .menu-list__item {
+    border-left: 1px solid var(--verde-300);
+    color: var(--verde-300);
+  }
+
+  .menu-list__item:last-child {
+    color: var(--branco);
+  }
+
+  .menu-list__item:last-child {
+    border-bottom: 2px solid #000;
+  }
+
+  .menu-list__item.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--verde-300);
+  }
+}

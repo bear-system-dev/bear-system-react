@@ -12,7 +12,7 @@ export function DialogMenu() {
 
       <Dialog.Portal>
         <Dialog.Overlay className="dialog-menu-overlay" />
-        <Dialog.Content className="dialog-menu-content">
+        <Dialog.Content className={`dialog-menu-content`}>
           <Navbar />
 
           <Dialog.Close className="dialog-menu__close">

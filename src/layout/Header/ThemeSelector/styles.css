@@ -12,6 +12,10 @@
   width: 2rem;
 }
 
+.theme-selector svg:hover {
+  fill: var(--verde-500);
+}
+
 @media screen and (max-width: 1200px){
   .theme-selector {
     position: relative;
@@ -27,5 +31,15 @@
   .theme-selector {
     position: absolute;
     padding: 0 2rem;
+  }
+}
+
+.bear {
+  .theme-selector svg {
+    fill: var(--verde-300);
+  }
+  
+  .theme-selector svg:hover {
+    fill: var(--verde-500) !important;
   }
 }

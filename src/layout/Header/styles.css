@@ -55,3 +55,15 @@
     max-width: 10rem;
   }
 }
+
+.dark {
+  .header, .header.alternative {
+    background-color: #18181b;
+  }
+}
+
+.bear {
+  .header, .header.alternative {
+    background-color: #000;
+  }
+}

@@ -2,7 +2,7 @@
   background-color: var(--cinza-100);
   border-top: 1px solid var(--cinza-300);
   border-radius: 6px;
-  min-height: 10rem;
+  min-height: 11rem;
   padding: 0.5rem 1rem ;
   text-align: left;
 }
@@ -20,3 +20,15 @@
     margin: 0 0.3rem 0.3rem 0;
     padding: 0.3rem;
     }
+
+.dark {
+  .card__skills {
+    background-color: #3f3f46;
+  }
+}
+
+.bear {
+  .card__skills {
+    background-color: #222;
+  }
+}
