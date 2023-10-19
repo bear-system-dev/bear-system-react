@@ -48,10 +48,30 @@
   .dialog-menu-content {
     background-color: #18181b;
   }
+
+  .dialog-menu__open svg,
+  .dialog-menu__close svg {
+    fill: var(--branco);
+  }
+
+  .dialog-menu__open svg:hover,
+  .dialog-menu__close svg:hover {
+    fill: var(--verde-500) !important;
+  }
 }
 
 .bear {
   .dialog-menu-content {
     background-color: #000;
+  }
+
+  .dialog-menu__open svg, 
+  .dialog-menu__close svg {
+    fill: var(--verde-300);
+  }
+
+  .dialog-menu__open svg:hover, 
+  .dialog-menu__close:hover {
+    fill: var(--verde-500) !important;
   }
 }

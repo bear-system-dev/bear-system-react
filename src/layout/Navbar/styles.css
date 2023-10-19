@@ -76,6 +76,20 @@
 }
 
 .dark {
+  .menu-list__item {
+  border-left: 1px solid var(--verde-500);
+  color: var(--branco);
+  }
+
+  .menu-list__item:hover {
+    color: var(--verde-500) !important
+  }
+
+  .menu-list__item:last-child:hover {
+    border-bottom: 2px solid var(--verde-300);
+    color: var(--branco) !important;
+  }
+
   .menu-list__item.active {
     color: var(--verde-500) !important;
   }

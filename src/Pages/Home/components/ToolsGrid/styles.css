@@ -99,10 +99,10 @@
   }  
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 870px) {
   
   .tools {
-    padding: 0 1rem;
+    padding: 3.5rem 1rem;
   }
 
   .tools__grid {
