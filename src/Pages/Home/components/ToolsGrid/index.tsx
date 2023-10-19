@@ -10,7 +10,10 @@ export function ToolsGrid() {
       <div className="tools__grid">
         {gridTextElements.map((item) => {
           return (
-            <div key={item.div} className={'tools__grid--call-to-action'}>
+            <div
+              key={item.div}
+              className={`tools__grid--call-to-action div${item.div}`}
+            >
               <h2>{item.title}</h2>
               <h3>{item.subtitle}</h3>
             </div>
