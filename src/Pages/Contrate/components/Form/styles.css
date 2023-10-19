@@ -38,7 +38,9 @@
 }
 
 .form__field-input:focus, .form__field-select:focus {
-  outline-color: var(--verde-300);
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid var(--verde-300);
 }
 
 .form__field-select {

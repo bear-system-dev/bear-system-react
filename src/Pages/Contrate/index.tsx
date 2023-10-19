@@ -1,3 +1,4 @@
+import styles from './../../App.module.scss'
 import { Form } from './components/Form'
 import './styles.css'
 
@@ -9,7 +10,7 @@ export function Contrate() {
           <h1 className="form__title">{formTitle}</h1>
           <Form />
         </div>
-        <div className="clients"></div>
+        <div className={`clients ${styles.clients}`}></div>
       </section>
     </main>
   )

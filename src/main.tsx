@@ -1,14 +1,14 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App.tsx'
 import { Theme } from './hooks/useTheme/useTheme.ts'
 import { ThemeProvider } from './hooks/useTheme/useTheme.tsx'
-import './index.scss'
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <StrictMode>
     <ThemeProvider themeName={Theme.Light}>
       <App />
     </ThemeProvider>
-  </React.StrictMode>,
+  </StrictMode>,
 )

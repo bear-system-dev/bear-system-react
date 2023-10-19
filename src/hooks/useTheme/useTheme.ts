@@ -1,4 +1,4 @@
-import React from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from './useTheme.tsx'
 
 export enum Theme {
@@ -8,9 +8,9 @@ export enum Theme {
 }
 
 export function useTheme() {
-  const context = React.useContext(ThemeContext)
+  const context = useContext(ThemeContext)
   if (context === undefined) {
-    throw new Error('How cannot use theme without a theme provider')
+    throw new Error('Não é possível usar um theme sem um theme provider!')
   }
   return context
 }

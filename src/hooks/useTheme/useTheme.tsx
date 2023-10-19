@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useState,
+} from 'react'
 import { Theme } from './useTheme.ts'
 
 interface ThemeProviderProps {
   themeName: Theme
-  children: React.ReactNode
+  children: ReactNode
 }
 
 interface ThemeContextModel {
   theme: Theme
-  setTheme: React.Dispatch<React.SetStateAction<Theme>>
+  setTheme: Dispatch<SetStateAction<Theme>>
 }
 
-export const ThemeContext = React.createContext<ThemeContextModel>(
+export const ThemeContext = createContext<ThemeContextModel>(
   {} as ThemeContextModel,
 )
 

@@ -17,15 +17,15 @@
     button:hover {
       background-color: var(--verde-300) !important;
     }
+
     div:nth-child(1) {
       background-color: #3f3f46;
     }
+    
+    &::after{
+      background-color: var(--cinza-800);
+    }
   }
-
-  .card::after {
-    background-color: var(--cinza-800);
-  }
-
   p, li, span, a, button, span, h1, h2, h3, h4, h5, h6 {
     color: white !important;
   }
@@ -34,6 +34,75 @@
     background-color: #3f3f46;
     border: none;
     color: white;
+  }
+
+  .div2, .div3, .div6, .div10, .div11 {
+    background-color: #3f3f46;
+  }
+
+  .div4, .div5, .div9, .div13 {
+    background-color: #52525b;
+  }
+}
+
+.bear {
+  .header, .header.alternative {
+    background-color: #000 !important;
+  }
+
+  .item {
+    color: var(--verde-300) !important;
+
+    &:last-child {
+      color: var(--branco) !important;
+    }
+  }
+  
+  main {
+    background-color: #111;
+  }
+
+  .card {
+    z-index: 0;
+    button {
+      background-color:  #000;
+      color: var(--verde-300);
+      border: 1px solid #000;
+    }
+
+    button:hover {
+      color: #000;
+      background-color: var(--verde-500) !important;
+    }
+
+    div:nth-child(1) {
+      background-color: #000;
+    }
+    
+    &::after{
+      background-color: var(--cinza-800);
+    }
+  }
+  p, li, span, span, h1, h2, h3, h4, h5, h6 {
+    color: var(--verde-300) !important;
+  }
+
+  button {
+    color: #fff
+  }
+
+  input, select, textarea, select option {
+    background-color: #222;
+    border: none;
+    color: var(--verde-300);
+
+    &:focus {
+      outline-color: var(--verde-300);
+    }
+  }
+
+  .clients {
+    opacity: 0.04;
   }
 
   .div2, .div3, .div6, .div10, .div11 {
