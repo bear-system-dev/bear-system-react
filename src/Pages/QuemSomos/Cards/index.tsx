@@ -8,16 +8,19 @@ import { Card } from './Card'
 import './styles.css'
 
 export function Cards() {
-  const [userProfileData, setUserProfileData] = useState<
+  const [userGithubData, setGithubProfileData] = useState<
     UserProfileDataProps[]
   >([])
 
   useEffect(() => {
     async function fetchData() {
+      const githubUsername = githubUsersList.map((user) => user.username)
+
       try {
         const githubUserProfiles =
-          await fetchGitHubUserProfilesByUsernames(githubUsersList)
-        setUserProfileData(githubUserProfiles)
+          await fetchGitHubUserProfilesByUsernames(githubUsername)
+
+        setGithubProfileData(githubUserProfiles)
       } catch (error) {
         console.error('Error fetching user data', error)
       }
@@ -28,8 +31,10 @@ export function Cards() {
 
   return (
     <div className="card-grid-container">
-      {userProfileData.map((user) => {
-        return <Card key={user.id} user={user} randomSkills={[]} />
+      {userGithubData.map((user) => {
+        const userSkills =
+          githubUsersList.find((u) => u.username === user.login)?.skills || []
+        return <Card key={user.id} user={user} skills={userSkills} />
       })}
     </div>
   )

@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import { generateRandomSkills } from '../../../../utils/mocks/shuffleSkills'
 import { CardButton } from '../components/CardButton'
 import { CardSkills } from '../components/skills'
 
@@ -11,17 +9,10 @@ interface CardProps {
     bio: string
     html_url: string
   }
-  randomSkills: string[]
+  skills: string[]
 }
 
-export function Card({ user }: CardProps) {
-  const [randomSkills, setRandomSkills] = useState<string[]>([])
-
-  useEffect(() => {
-    const randomSkills = generateRandomSkills()
-    setRandomSkills(randomSkills)
-  }, [])
-
+export function Card({ user, skills }: CardProps) {
   return (
     <div className="card card__background">
       <img
@@ -29,7 +20,9 @@ export function Card({ user }: CardProps) {
         src={user.avatar_url}
         alt="foto de perfil"
       />
-      <h3 className="card__name">{user.name}</h3>
+      <h3 className="card__name">
+        {user.name === null ? user.login : user.name}
+      </h3>
       <h6 className="card__username">{user.login}</h6>
       <span className="card__description">{user.bio}</span>
       <div className="card__buttons-container">
@@ -37,7 +30,7 @@ export function Card({ user }: CardProps) {
         <CardButton link="#" variant="secondary" label="Adicionar na Squad" />
       </div>
       <div className="teste">
-        <CardSkills skills={randomSkills} />
+        <CardSkills skills={skills} />
       </div>
     </div>
   )
