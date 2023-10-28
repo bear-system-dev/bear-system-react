@@ -18,7 +18,7 @@ export function Header({ variant }: HeaderStyleProps) {
 
   return (
     <header className={`header ${variant}`}>
-      {variant === 'default' && <DialogMenu />}
+      <DialogMenu />
       <NavLink to="/" title="home" className="navlink">
         <img
           src={theme === 'light' ? logo : logoDarkMode}

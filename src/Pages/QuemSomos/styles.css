@@ -27,6 +27,7 @@
 }
 
 .about__stars-title {
+  font-size: 2rem;
   font-weight: 700;
   padding: 2rem 0;
 }
@@ -34,7 +35,11 @@
 @media screen and (max-width: 1600px) {
   .about-container {
     padding: 0 10vw;
-  }  
+  }
+
+  .about__stars-title {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 1200px) {
