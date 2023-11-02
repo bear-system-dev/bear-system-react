@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import {
   UserProfileDataProps,
   fetchGitHubUserProfilesByUsernames,
-} from '../../../services/data-utils/FetchGitHubUsers'
+} from '../../../services/data/FetchGitHubUsers'
 import { githubUsersList } from '../../../utils/helpers/arrays'
 import { Card } from './Card'
 import './styles.css'

@@ -1,12 +1,18 @@
+import { Form } from './components/Form'
 import './styles.css'
 
 export function Carreiras() {
   return (
     <main>
-      <div className="under-construction-container">
-        <h1 className="under-construction-title">Em Construção</h1>
-        <h2 className="under-construction-subtitle">em breve novidades</h2>
-      </div>
+      <section className="form-and-clients-container">
+        <div className="form">
+          <h1 className="form__title">{formTitle}</h1>
+          <Form />
+        </div>
+        <div className="clients"></div>
+      </section>
     </main>
   )
 }
+
+const formTitle = 'O próximo passo na sua jornada como desenvolvedor.'
