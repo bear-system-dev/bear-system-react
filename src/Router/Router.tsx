@@ -5,7 +5,7 @@ import { Contrate } from '../Pages/Contrate'
 import { Home } from '../Pages/Home'
 import { QuemSomos } from '../Pages/QuemSomos'
 import { Solucoes } from '../Pages/Solucoes'
-import { AlternativeLayout, DefaultLayout } from '../layout'
+import { DefaultLayout } from '../layout'
 
 export function Router() {
   return (
@@ -16,8 +16,6 @@ export function Router() {
         <Route path="/Soluções" element={<Solucoes />} />
         <Route path="/Comunidade" element={<Comunidade />} />
         <Route path="/Carreiras" element={<Carreiras />} />
-      </Route>
-      <Route path="/" element={<AlternativeLayout />}>
         <Route path="/Contrate" element={<Contrate />} />
       </Route>
     </Routes>

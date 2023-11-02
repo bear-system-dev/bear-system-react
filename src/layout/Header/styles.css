@@ -18,14 +18,6 @@
   align-items: center;
 }
 
-.header.alternative {
-  background-color: transparent;
-  border-bottom: 2px solid #ececec;
-  min-height: 5rem;
-  padding: 0 2rem;
-  position: relative;
-}
-
 @media screen and (max-width: 1600px) {
   .header {
     padding: 0 10vw;
@@ -57,13 +49,13 @@
 }
 
 .dark {
-  .header, .header.alternative {
+  .header {
     background-color: #18181b;
   }
 }
 
 .bear {
-  .header, .header.alternative {
+  .header {
     background-color: #000;
   }
 }

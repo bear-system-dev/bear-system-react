@@ -8,16 +8,12 @@ import { DialogMenu } from '../Navbar/components/DialogMenu'
 import { ThemeSelector } from './ThemeSelector'
 import './styles.css'
 
-interface HeaderStyleProps {
-  variant: 'default' | 'alternative'
-}
-
-export function Header({ variant }: HeaderStyleProps) {
+export function Header() {
   const isMobile = useIsMobile()
   const { theme } = useTheme()
 
   return (
-    <header className={`header ${variant}`}>
+    <header className="header">
       <DialogMenu />
       <NavLink to="/" title="home" className="navlink">
         <img
@@ -26,7 +22,7 @@ export function Header({ variant }: HeaderStyleProps) {
           className="logo"
         />
       </NavLink>
-      {variant === 'default' && !isMobile && <Navbar />}
+      {!isMobile && <Navbar />}
       <ThemeSelector />
     </header>
   )

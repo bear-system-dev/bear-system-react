@@ -47,6 +47,24 @@ select {
   100% { transform: rotate(360deg); }
 }
 
+@keyframes slideIn {
+  from {
+    left: -15rem;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -15rem;
+  }
+}
+
 :root {
   --preto: #181818;
   --branco: #FFFFFF;

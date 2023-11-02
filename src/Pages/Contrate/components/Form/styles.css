@@ -104,14 +104,32 @@
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 700;
+  height: 3.75rem;
   margin: 2rem 1rem 0;
-  padding: 1.25rem 3.5rem;
+  position: relative;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
+  width: 10rem;
 }
 
 .form__botao:hover {
   background-color: var(--verde-300);
+}
+
+.spinner-container {
+  animation: spin 1s linear infinite;
+}
+
+.form__botao svg {
+  align-items: center;
+  display: flex;
+  height: auto;
+  left: 50%;
+  justify-content: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  width: 1.5rem;
 }
 
 .form__error {
@@ -141,28 +159,32 @@
 
   .form__field-select {
     font-size: 0.875rem;
-    max-height: 2rem;
+    max-height: 2.5rem;
     padding: 0 0.5rem;
   }
 
   .form__field-select--arrow {
     background-position:
-    calc(100% - 20px) calc(0.75rem + 2px),
-    calc(100% - 15px) calc(0.75rem + 2px),
-    100% 0;
+      calc(100% - 20px) calc(1rem + 2px),
+      calc(100% - 15px) calc(1rem + 2px),
+      100% 0;;
   }
 
-.form__field-select--arrow:focus {
-  background-position:
-    calc(100% - 15px) 0.75rem,
-    calc(100% - 20px) 0.75rem,
-    100% 0;
-}
+  .form__field-select--arrow:focus {
+    background-position:
+      calc(100% - 15px) 1rem,
+      calc(100% - 20px) 1rem,
+      100% 0;
+  }
 
-
-  .form__botao {
-    padding: 0.75rem 1.75rem;
+  .recruitment-form__botao {
+    height: 3rem;
     margin: 1rem 1rem 0;
+    width: 7rem;
+  }
+
+  .recruitment-form__botao svg {
+    width: 1.25rem;
   }
 }
 

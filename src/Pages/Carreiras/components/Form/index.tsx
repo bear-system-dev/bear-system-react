@@ -198,7 +198,7 @@ export function Form() {
             <span>Qual área de desenvolvimento você prefere?</span>
           </label>
           <select
-            className="recruitment-form__field-select form__field-select--arrow"
+            className="recruitment-form__field-select recruitment-form__field-select--arrow"
             id="role"
             {...register('role', { required: true })}
           >

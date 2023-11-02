@@ -159,23 +159,23 @@
 
   .recruitment-form__field-select {
     font-size: 0.875rem;
-    max-height: 2rem;
+    max-height: 2.5rem;
     padding: 0 0.5rem;
   }
 
   .recruitment-form__field-select--arrow {
     background-position:
-    calc(100% - 20px) calc(0.75rem + 2px),
-    calc(100% - 15px) calc(0.75rem + 2px),
-    100% 0;
+      calc(100% - 20px) calc(1rem + 2px),
+      calc(100% - 15px) calc(1rem + 2px),
+      100% 0;
   }
 
-.recruitment-form__field-select--arrow:focus {
-  background-position:
-    calc(100% - 15px) 0.75rem,
-    calc(100% - 20px) 0.75rem,
-    100% 0;
-}
+  .recruitment-form__field-select--arrow:focus {
+    background-position:
+      calc(100% - 15px) 1rem,
+      calc(100% - 20px) 1rem,
+      100% 0;
+  }
 
 
   .recruitment-form__botao {

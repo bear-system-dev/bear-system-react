@@ -13,25 +13,27 @@
     z-index: 99;
   }
 
-  .dialog-menu-overlay {
-    position: 'fixed';
-    inset: 0;
-  }
-
   .dialog-menu-content {
+    animation: slide 0.5s forwards;
     background: var(--cinza-100);
     box-shadow: 1px 3px 6px 0px rgba(171, 171, 171, 0.54);
     display: flex;
     flex-direction: column;
     height: 100vh;
-    left: 0;
     max-width: 15rem;
     padding-top: 3.125rem;
     position: fixed;
-    transition: left 0.2s ease-out 0s;
     top: 0;
     width: 100%;
     z-index: 999;
+  }
+
+  .dialog-menu-content[data-state='open'] {
+    animation: slideIn 0.3s ease-in;
+  }
+
+  .dialog-menu-content[data-state='closed'] {
+    animation: slideOut 0.3s ease-out;
   }
 
   .dialog-menu__close {

@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ChangeEvent } from 'react'
+import { SpinnerGap } from '@phosphor-icons/react'
+import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import './styles.css'
@@ -46,13 +47,10 @@ export function Form() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     setError,
   } = useForm<FormProps>({ resolver: zodResolver(contrateFormSchema) })
-
-  const onSubmit = (data: FormProps) => {
-    console.log(data)
-  }
 
   const phoneMask = (phoneNumber: string) => {
     if (!phoneNumber) return ''
@@ -77,6 +75,17 @@ export function Form() {
     setError('phone', errorOptions)
 
     e.target.value = formattedPhone
+  }
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const onSubmit = (data: FormProps) => {
+    setIsSubmitting(true)
+    console.log(data)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      reset()
+    }, 1000)
   }
 
   return (
@@ -253,8 +262,14 @@ export function Form() {
           )}
         </div>
       </div>
-      <button type="submit" className="form__botao">
-        Iniciar
+      <button type="submit" className="recruitment-form__botao">
+        {isSubmitting ? (
+          <div className="spinner-container">
+            <SpinnerGap />
+          </div>
+        ) : (
+          'Enviar'
+        )}
       </button>
     </form>
   )

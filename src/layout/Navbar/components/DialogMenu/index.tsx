@@ -5,13 +5,12 @@ import './styles.css'
 
 export function DialogMenu() {
   return (
-    <Dialog.Root>
+    <Dialog.Root modal={false}>
       <Dialog.Trigger className="dialog-menu__open">
         <List size={24} weight="thin" className="icon-list" />
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="dialog-menu-overlay" />
         <Dialog.Content className={`dialog-menu-content`}>
           <Navbar />
 

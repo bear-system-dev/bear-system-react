@@ -7,8 +7,9 @@
   font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -1px;
-  margin: 0 auto 5vh;
+  margin: 0 auto;
   max-width: 30rem;
+  padding: 7vh 0 5vh;
   text-align: center;
   -webkit-text-stroke: .5px;
 }
