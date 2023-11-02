@@ -118,6 +118,11 @@
 
 .spinner-container {
   animation: spin 1s linear infinite;
+  border: none;
+}
+
+.recruitment-form__botao:focus {
+  outline: none;
 }
 
 .form__botao svg {
