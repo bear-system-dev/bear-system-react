@@ -91,6 +91,10 @@ export const githubUsersList = [
     ],
   },
   {
+    username: 'Zero0Di',
+    skills: ['Back End Development', 'C#', 'JavaScript', 'Node.js', 'Express'],
+  },
+  {
     username: 'artenlf',
     skills: [
       'Front End Development',

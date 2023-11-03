@@ -81,6 +81,16 @@ export function Form() {
     e.target.value = formattedPhone
   }
 
+  const [showOtherInput, setShowOtherInput] = useState(false)
+
+  const handleReferralChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    if (e.currentTarget.value === 'Outros') {
+      setShowOtherInput(true)
+    } else {
+      setShowOtherInput(false)
+    }
+  }
+
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const onSubmit = (data: FormProps) => {
@@ -302,13 +312,43 @@ export function Form() {
           <label className="recruitment-form__field-label" htmlFor="referral">
             <span>Estamos curiosos. Como você soube sobre nós?</span>
           </label>
-          <input
-            className="recruitment-form__field-input"
-            type="text"
+          <select
+            className="recruitment-form__field-select recruitment-form__field-select--arrow"
             id="referral"
             {...register('referral', { required: true })}
-          />
+            onChange={handleReferralChange}
+          >
+            <option value="">Selecione...</option>
+            <option value="Discord">Discord</option>
+            <option value="Amigos ou Indicação">Amigos ou Indicação</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Indeed">Indeed</option>
+            <option value="GitHub">GitHub</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Outros">Outros</option>
+          </select>
         </div>
+        {errors.referral && (
+          <span className="recruitment-form__error">
+            {errors.referral.message}
+          </span>
+        )}
+        {showOtherInput && (
+          <div className="recruitment-form__field-container">
+            <label
+              className="recruitment-form__field-label"
+              htmlFor="otherReferral"
+            >
+              <span>Por favor, detalhe como você soube sobre nós:</span>
+            </label>
+            <input
+              type="text"
+              className="recruitment-form__field-input"
+              id="referral"
+              {...register('referral', { required: true })}
+            />
+          </div>
+        )}
       </div>
       <button type="submit" className="recruitment-form__botao">
         {isSubmitting ? (
