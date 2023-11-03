@@ -311,7 +311,7 @@ export function Form() {
         </div>
       </div>
       <button type="submit" className="recruitment-form__botao">
-        {!isSubmitting ? (
+        {isSubmitting ? (
           <div className="spinner-container">
             <SpinnerGap />
           </div>
