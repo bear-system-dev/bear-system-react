@@ -18,6 +18,10 @@ body {
   background: var(--branco);
 }
 
+main {
+  padding: 0 0 5rem;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -36,7 +40,10 @@ img {
   max-width: 100%;
 }
 
-select {
+select,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number] {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;

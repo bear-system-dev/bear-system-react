@@ -1,10 +1,5 @@
-.recruitment-contrate__formulario {
-  padding: 5rem;
-}
-
 .recruitment-form__fields-line {
   display: grid;
-  grid-template-columns: 48% 48%;
 }
 
 .recruitment-form__field-container {
@@ -108,7 +103,6 @@
   margin: 2rem 1rem 0;
   position: relative;
   text-transform: uppercase;
-  /* transition: all 0.3s ease-in-out; */
   width: 10rem;
 }
 

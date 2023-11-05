@@ -39,7 +39,7 @@
 }
 
 .call-to-action__title > span {
-  color: var(--verde-500);
+  color: var(--verde-500) !important;
 }
 
 .call-to-action__subtitle {

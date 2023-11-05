@@ -1,6 +1,71 @@
-.recruitment-form-and-clients-container {
-  display: grid;
-  grid-template-columns: 1fr 40%;
+.careers-hero {
+  color: var(--branco);
+  display: flex;
+  position: relative;
+}
+
+.careers-background-video {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.careers-hero::after {
+  content: '';
+  background: rgba( 0, 0, 0, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height: 100%;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.careers-call-to-action {
+  position: absolute;
+  gap: 1.5rem;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.careers-call-to-action__title {
+  font-size: 2.75rem;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.careers-call-to-action__title > span {
+  color: var(--verde-500);
+  text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.careers-call-to-action__subtitle {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  max-width: 40rem;
+  margin: 0 auto;
+  text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+
+.recruitment-form {
+  padding: 0 25%;
 }
 
 .recruitment-form__title {
@@ -14,17 +79,6 @@
   -webkit-text-stroke: .5px;
 }
 
-.recruitment-form {
-  padding: 5rem;
-}
-
-.recruitment-clients {
-  background-image: url(../../assets/images/bg-08.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.2;
-}
-
 @media screen and (max-width: 1600px) {
   .recruitment-form-and-clients-container {
     display: grid;
@@ -33,6 +87,16 @@
 
   .recruitment-clients {
     display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .careers-call-to-action__title {
+    font-size: 2rem;
+  }  
+
+  .careers-call-to-action__subtitle {
+    font-size: 1rem;
   }
 }
 
@@ -45,7 +109,17 @@
   }
 }
 
+.dark {
+  .careers-hero::after {
+    background: rgba( 0, 0, 0, 0.5 );
+
+  }
+}
+
 .bear {
+  .careers-hero::after {
+    background: rgba( 0, 0, 0, 0.7 );
+  }
   .recruitment-clients {
     opacity: 0.04;
   }

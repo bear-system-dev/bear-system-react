@@ -1,0 +1,7 @@
+.footer {
+  background: var(--cinza-100);
+  height: 7.5rem;
+  padding: 0 20%;
+  width: 100%;
+  z-index: 10;
+}

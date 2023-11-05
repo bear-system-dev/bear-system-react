@@ -1,6 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SpinnerGap } from '@phosphor-icons/react'
-import emailjs from 'emailjs-com'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -19,7 +18,13 @@ const contrateFormSchema = z.object({
 
   email: z.string().email({ message: 'Digite um e-mail válido.' }),
 
-  age: z.string(),
+  age: z.string().refine(
+    (value) => {
+      const age = parseInt(value)
+      return !isNaN(age) && age >= 5 && age <= 130
+    },
+    { message: 'Digite uma idade válida.' },
+  ),
 
   phone: z
     .string()
@@ -45,7 +50,7 @@ const contrateFormSchema = z.object({
   referral: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
 })
 
-type FormProps = z.infer<typeof contrateFormSchema>
+export type FormProps = z.infer<typeof contrateFormSchema>
 
 export function Form() {
   const {
@@ -56,6 +61,57 @@ export function Form() {
     setError,
   } = useForm<FormProps>({ resolver: zodResolver(contrateFormSchema) })
 
+  const preventNumbersOnNameField = (value: string) => {
+    if (!value) return ''
+    value = value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿ ]/g, '')
+    return value
+  }
+
+  const handlePreventNumbersOnName = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const formattedName = preventNumbersOnNameField(value)
+    e.target.value = formattedName
+  }
+
+  const handleVerifyEmailOnBlur = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const isValid = emailRegex.test(value)
+    if (!isValid) {
+      setError('email', {
+        type: 'manual',
+        message: 'Digite um e-mail válido.',
+      })
+    } else {
+      setError('email', {})
+    }
+  }
+
+  const preventLettersOnAgeField = (value: string) => {
+    if (!value) return ''
+    value = value.replace(/\D/g, '')
+    return value
+  }
+
+  const handlePreventLettersOnAge = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const formattedAge = preventLettersOnAgeField(value)
+    e.target.value = formattedAge
+  }
+
+  const handleVerifyAgeOnBlur = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    const age = parseInt(value)
+    const isValid = !isNaN(age) && age >= 1 && age <= 130
+    if (!isValid) {
+      setError('age', {
+        type: 'manual',
+        message: 'Digite uma idade válida.',
+      })
+    } else {
+      setError('age', {})
+    }
+  }
   const phoneMask = (phoneNumber: string) => {
     if (!phoneNumber) return ''
     phoneNumber = phoneNumber.replace(/\D/g, '')
@@ -64,21 +120,25 @@ export function Form() {
     return phoneNumber
   }
 
-  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleVerifyPhoneOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     const formattedPhone = phoneMask(value)
-    const isValid = formattedPhone.length >= 14
-
-    const errorOptions = isValid
-      ? {}
-      : {
-          type: 'manual',
-          message: 'Digite um número de telefone válido.',
-        }
-
-    setError('phone', errorOptions)
-
     e.target.value = formattedPhone
+
+    if (formattedPhone.length >= 14) {
+      setError('phone', {})
+    }
+  }
+
+  const handleVerifyPhoneOnBlur = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+
+    if (value.length < 14) {
+      setError('phone', {
+        type: 'manual',
+        message: 'Digite um número de telefone válido.',
+      })
+    }
   }
 
   const [showOtherInput, setShowOtherInput] = useState(false)
@@ -95,46 +155,31 @@ export function Form() {
 
   const onSubmit = (data: FormProps) => {
     setIsSubmitting(true)
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        data,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(
-        (result) => {
-          console.log('E-mail enviado com sucesso:', result.text)
-          setIsSubmitting(false)
-          reset()
-        },
-        (error) => {
-          console.log('Erro ao enviar e-mail:', error.text)
-          setIsSubmitting(false)
-        },
-      )
+    console.log(data)
+    reset()
+    // emailjs
+    //   .send(
+    //     import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    //     import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    //     data,
+    //     import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log('E-mail enviado com sucesso:', result.text)
+    //       setIsSubmitting(false)
+    //       reset()
+    //     },
+    //     (error) => {
+    //       console.log('Erro ao enviar e-mail:', error.text)
+    //       setIsSubmitting(false)
+    //     },
+    //   )
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="recruitment-form__fields-line">
-        <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="email">
-            <span>E-mail</span>
-          </label>
-          <input
-            className="recruitment-form__field-input"
-            type="email"
-            id="email"
-            {...register('email', { required: true })}
-          />
-          {errors.email && (
-            <span className="recruitment-form__error">
-              {errors.email.message}
-            </span>
-          )}
-        </div>
-
         <div className="recruitment-form__field-container">
           <label className="recruitment-form__field-label" htmlFor="name">
             <span>Nome</span>
@@ -144,6 +189,7 @@ export function Form() {
             type="text"
             id="name"
             {...register('name', { required: true })}
+            onInput={handlePreventNumbersOnName}
           />
           {errors.name && (
             <span className="recruitment-form__error">
@@ -153,15 +199,41 @@ export function Form() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="company">
+          <label className="recruitment-form__field-label" htmlFor="email">
+            <span>E-mail</span>
+          </label>
+          <input
+            className="recruitment-form__field-input"
+            type="email"
+            id="email"
+            {...register('email', { required: true })}
+            onBlur={handleVerifyEmailOnBlur}
+          />
+          {errors.email && (
+            <span className="recruitment-form__error">
+              {errors.email.message}
+            </span>
+          )}
+        </div>
+
+        <div className="recruitment-form__field-container">
+          <label className="recruitment-form__field-label" htmlFor="age">
             <span>Idade</span>
           </label>
           <input
             className="recruitment-form__field-input"
             type="text"
             id="age"
+            maxLength={3}
             {...register('age', { required: true })}
+            onChange={handlePreventLettersOnAge}
+            onBlur={handleVerifyAgeOnBlur}
           />
+          {errors.age && (
+            <span className="recruitment-form__error">
+              {errors.age.message}
+            </span>
+          )}
         </div>
 
         <div className="recruitment-form__field-container">
@@ -173,7 +245,8 @@ export function Form() {
             className="recruitment-form__field-input"
             type="tel"
             {...register('phone', { required: true })}
-            onChange={handlePhoneChange}
+            onChange={handleVerifyPhoneOnChange}
+            onBlur={handleVerifyPhoneOnBlur}
             minLength={14}
             maxLength={15}
           />
