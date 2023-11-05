@@ -5,3 +5,15 @@
   width: 100%;
   z-index: 10;
 }
+
+.dark {
+  .footer {
+    background-color: #18181b;
+  }
+}
+
+.bear {
+  .footer {
+    background-color: #000;
+  }
+}

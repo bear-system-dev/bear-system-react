@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SpinnerGap } from '@phosphor-icons/react'
+import emailjs from 'emailjs-com'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -155,26 +156,25 @@ export function Form() {
 
   const onSubmit = (data: FormProps) => {
     setIsSubmitting(true)
-    console.log(data)
     reset()
-    // emailjs
-    //   .send(
-    //     import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    //     import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-    //     data,
-    //     import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log('E-mail enviado com sucesso:', result.text)
-    //       setIsSubmitting(false)
-    //       reset()
-    //     },
-    //     (error) => {
-    //       console.log('Erro ao enviar e-mail:', error.text)
-    //       setIsSubmitting(false)
-    //     },
-    //   )
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        data,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        (result) => {
+          console.log('E-mail enviado com sucesso:', result.text)
+          setIsSubmitting(false)
+          reset()
+        },
+        (error) => {
+          console.log('Erro ao enviar e-mail:', error.text)
+          setIsSubmitting(false)
+        },
+      )
   }
 
   return (

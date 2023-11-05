@@ -15,7 +15,6 @@
 .careers-hero::after {
   content: '';
   background: rgba( 0, 0, 0, 0.3 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
   backdrop-filter: blur( 7.5px );
   -webkit-backdrop-filter: blur( 7.5px );
   border-radius: 10px;
@@ -122,5 +121,20 @@
   }
   .recruitment-clients {
     opacity: 0.04;
+  }
+
+  .careers-call-to-action__title {
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+      0px -4px 10px rgba(0, 135, 95, 0.3);
+  }
+  
+  .careers-call-to-action__title > span {
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+      0px -4px 10px rgba(0, 135, 95, 0.3);
+  }
+  
+  .careers-call-to-action__subtitle {
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+      0px -4px 10px rgba(0, 135, 95, 0.3);
   }
 }
