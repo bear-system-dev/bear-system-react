@@ -48,6 +48,9 @@ const contrateFormSchema = z.object({
     .string()
     .nonempty({ message: 'Por favor digite a sua resposta' }),
   referral: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+  othersReferral: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
 })
 
 export type FormProps = z.infer<typeof contrateFormSchema>
@@ -371,26 +374,31 @@ export function Form() {
             <option value="Instagram">Instagram</option>
             <option value="Outros">Outros</option>
           </select>
+          {errors.referral && (
+            <span className="recruitment-form__error">
+              {errors.referral.message}
+            </span>
+          )}
         </div>
-        {errors.referral && (
-          <span className="recruitment-form__error">
-            {errors.referral.message}
-          </span>
-        )}
         {showOtherInput && (
           <div className="recruitment-form__field-container">
             <label
               className="recruitment-form__field-label"
-              htmlFor="otherReferral"
+              htmlFor="othersReferral"
             >
               <span>Por favor, detalhe como você soube sobre nós:</span>
             </label>
             <input
               type="text"
               className="recruitment-form__field-input"
-              id="referral"
-              {...register('referral', { required: true })}
+              id="othersReferral"
+              {...register('othersReferral', { required: true })}
             />
+            {errors.othersReferral && (
+              <span className="recruitment-form__error">
+                {errors.othersReferral.message}
+              </span>
+            )}
           </div>
         )}
       </div>

@@ -41,11 +41,10 @@
   resize: none;
 }
 
-.recruitment-form__field-input:focus, .form__field-select:focus {
-  border: none;
-  border-radius: 4px;
+.recruitment-form__field-input:focus,
+.recruitment-form__field-textarea:focus,
+.form__field-select:focus {
   color: var(--preto);
-  outline: 2px solid var(--verde-300);
 }
 
 .recruitment-form__field-select {
@@ -223,10 +222,5 @@
     background-color: #222;
     border: none;
     color: var(--verde-300);
-  }
-
-  .recruitment-form__field-input:focus,
-  .recruitment-form__field-textarea:focus {
-    outline-color: var(--verde-300);
   }
 }
