@@ -154,6 +154,11 @@
 }
 
 @media screen and (max-width: 650px) {
+  .recruitment-form__fields-line {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+
   .recruitment-form__field-container {
     padding: 0 1rem 2vh;
   }
@@ -200,7 +205,8 @@
 }
 
 .dark {
-  .recruitment-form__field-input, 
+  .recruitment-form__field-input,
+  .recruitment-form__field-textarea, 
   .recruitment-form__field-select,
   .recruitment-form__field-select option {
     background-color: #3f3f46;
@@ -211,6 +217,7 @@
 
 .bear {
   .recruitment-form__field-input, 
+  .recruitment-form__field-textarea, 
   .recruitment-form__field-select,
   .recruitment-form__field-select option {
     background-color: #222;
@@ -218,7 +225,8 @@
     color: var(--verde-300);
   }
 
-  .recruitment-form__field-input:focus {
+  .recruitment-form__field-input:focus,
+  .recruitment-form__field-textarea:focus {
     outline-color: var(--verde-300);
   }
 }
