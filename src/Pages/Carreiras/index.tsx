@@ -12,7 +12,6 @@ export function Carreiras() {
           autoPlay
           loop
           muted
-          width={1920}
           className="careers-background-video"
         />
         <div className="careers-call-to-action">

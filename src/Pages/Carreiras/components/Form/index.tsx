@@ -32,8 +32,7 @@ const contrateFormSchema = z.object({
     .min(14, {
       message: 'Digite um número de telefone válido.',
     })
-    .max(15)
-    .transform((phone) => phone.replace(/[^0-9]/g, '')),
+    .max(15),
 
   role: z.string().nonempty({ message: 'Selecione uma opção' }),
 
@@ -100,19 +99,6 @@ export function Form() {
     e.target.value = formattedAge
   }
 
-  const handleVerifyAgeOnBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-    const age = parseInt(value)
-    const isValid = !isNaN(age) && age >= 1 && age <= 130
-    if (!isValid) {
-      setError('age', {
-        type: 'manual',
-        message: 'Digite uma idade válida.',
-      })
-    } else {
-      setError('age', {})
-    }
-  }
   const phoneMask = (phoneNumber: string) => {
     if (!phoneNumber) return ''
     phoneNumber = phoneNumber.replace(/\D/g, '')
@@ -128,17 +114,6 @@ export function Form() {
 
     if (formattedPhone.length >= 14) {
       setError('phone', {})
-    }
-  }
-
-  const handleVerifyPhoneOnBlur = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-
-    if (value.length < 14) {
-      setError('phone', {
-        type: 'manual',
-        message: 'Digite um número de telefone válido.',
-      })
     }
   }
 
@@ -227,7 +202,6 @@ export function Form() {
             maxLength={3}
             {...register('age', { required: true })}
             onChange={handlePreventLettersOnAge}
-            onBlur={handleVerifyAgeOnBlur}
           />
           {errors.age && (
             <span className="recruitment-form__error">
@@ -246,7 +220,6 @@ export function Form() {
             type="tel"
             {...register('phone', { required: true })}
             onChange={handleVerifyPhoneOnChange}
-            onBlur={handleVerifyPhoneOnBlur}
             minLength={14}
             maxLength={15}
           />
@@ -348,9 +321,8 @@ export function Form() {
               seu trabalho?
             </span>
           </label>
-          <input
-            className="recruitment-form__field-input"
-            type="text"
+          <textarea
+            className="recruitment-form__field-textarea"
             id="criticism"
             {...register('criticism', { required: true })}
           />
@@ -368,9 +340,8 @@ export function Form() {
               desenvolvimento de software?
             </span>
           </label>
-          <input
-            className="recruitment-form__field-input"
-            type="text"
+          <textarea
+            className="recruitment-form__field-textarea"
             id="strengths"
             {...register('strengths', { required: true })}
           />
@@ -423,7 +394,11 @@ export function Form() {
           </div>
         )}
       </div>
-      <button type="submit" className="recruitment-form__botao">
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="recruitment-form__botao"
+      >
         {isSubmitting ? (
           <div className="spinner-container">
             <SpinnerGap />

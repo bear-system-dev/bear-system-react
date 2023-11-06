@@ -1,5 +1,6 @@
 .recruitment-form__fields-line {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr))
 }
 
 .recruitment-form__field-container {
@@ -21,7 +22,8 @@
   text-transform: capitalize;
 }
 
-.recruitment-form__field-input {
+.recruitment-form__field-input, 
+.recruitment-form__field-textarea {
   background-color: #fff;
   border: 1px solid var(--cinza-200);
   color: var(--cinza-500);
@@ -31,6 +33,12 @@
   min-height: 2.5rem;
   padding: 0.7rem;
   width: 100%;
+}
+
+.recruitment-form__field-textarea {
+  height: 12.5vh;
+  max-height: 100%;
+  resize: none;
 }
 
 .recruitment-form__field-input:focus, .form__field-select:focus {
@@ -110,6 +118,10 @@
   background-color: var(--verde-300);
 }
 
+.recruitment-form__botao:disabled {
+  cursor: not-allowed;
+}
+
 .spinner-container {
   animation: spin 1s linear infinite;
 }
@@ -135,7 +147,7 @@
   font-size: 0.875rem;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1000px) {
   .recruitment-form__field-container {
     grid-column: span 2;
   }

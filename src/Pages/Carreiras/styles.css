@@ -5,11 +5,8 @@
 }
 
 .careers-background-video {
-  position: relative;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  height: auto   !important;
+  width: 100%    !important;
 }
 
 .careers-hero::after {
@@ -28,11 +25,12 @@
 .careers-call-to-action {
   position: absolute;
   gap: 1.5rem;
-  max-width: 60rem;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   top: 45%;
   left: 50%;
+  padding: 0 2rem;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 1;
@@ -79,27 +77,62 @@
 }
 
 @media screen and (max-width: 1600px) {
-  .recruitment-form-and-clients-container {
-    display: grid;
-    grid-template-columns: 1fr;
+  .careers-background-video {
+    object-fit: cover;
+    height: 100vh !important;
+    width: auto;
+  }
+  
+  .careers-call-to-action {
+    width: 80%
   }
 
-  .recruitment-clients {
-    display: none;
+  .recruitment-form {
+    padding: 0 15%;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
+  .careers-call-to-action {
+    width: 100%
+  }
+
   .careers-call-to-action__title {
-    font-size: 2rem;
-  }  
+    font-size: 2.5rem;
+  }
+
+  .recruitment-form {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .recruitment-form {
+    padding: 0 15%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .careers-call-to-action__title {
+    font-size: 1.75rem;
+  }
 
   .careers-call-to-action__subtitle {
-    font-size: 1rem;
+    max-width: 30rem;
+  }
+
+  .recruitment-form {
+    padding: 0 2rem;
   }
 }
 
 @media screen and (max-width: 650px) {
+  .careers-background-video {
+    object-fit: cover;
+    height: 100vh !important;
+    width: auto;
+  }
+
   .recruitment-form {
     padding: 1rem 0.5rem;
   }
