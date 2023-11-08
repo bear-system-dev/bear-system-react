@@ -96,7 +96,8 @@ input[type=number] {
   --slate-500: #54647A;
   --laranja-300: #ec9575;
   --laranja-500: #ec774d;
-  --alert: #b91c1c;
+  --alert-300: #e25656;
+  --alert-500: #b91c1c;
 
   --fonte: 'Open Sans', sans-serif;
 }

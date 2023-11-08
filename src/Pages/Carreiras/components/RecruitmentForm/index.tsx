@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { ErrorDialog } from '../ErrorDialog'
 import { SuccessDialog } from '../SuccessDialog'
 import './styles.css'
 
@@ -120,6 +121,7 @@ export function RecruitmentForm() {
 
   const [showOtherInput, setShowOtherInput] = useState(false)
   const [openSuccessDialog, setOpenSuccessDialog] = useState(false)
+  const [openErrorDialog, setOpenErrorDialog] = useState(false)
 
   const handleReferralChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.currentTarget.value === 'Outros') {
@@ -150,6 +152,7 @@ export function RecruitmentForm() {
         (error) => {
           console.log('Erro ao enviar e-mail:', error.text)
           setIsSubmitting(false)
+          setOpenErrorDialog(true)
         },
       )
   }
@@ -417,6 +420,10 @@ export function RecruitmentForm() {
       <SuccessDialog
         openSuccessDialog={openSuccessDialog}
         setOpenSuccessDialog={setOpenSuccessDialog}
+      />
+      <ErrorDialog
+        openErrorDialog={openErrorDialog}
+        setOpenErrorDialog={setOpenErrorDialog}
       />
     </form>
   )

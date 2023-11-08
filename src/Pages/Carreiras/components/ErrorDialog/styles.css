@@ -1,4 +1,4 @@
-.success-dialog-content {
+.error-dialog-content {
   align-items: center;
   background: var(--cinza-100);
   border: none !important;
@@ -18,7 +18,7 @@
   z-index: 1;
 }
 
-.success-dialog-title {
+.error-dialog-title {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -26,21 +26,21 @@
   text-align: center;
 }
 
-.success-dialog__close {
+.error-dialog__close {
   border: none !important;
   outline: none !important;
 }
 
-.success-dialog__close svg {
+.error-dialog__close svg {
   border: none;
   cursor: pointer;
-  fill: var(--verde-500);
+  fill: var(--alert-500);
   height: auto;
   outline: none;
   transition: all 0.3s ease-in-out;
   width: 5rem;
 }
 
-.success-dialog__close svg:hover {
-  fill: var(--verde-300);
+.error-dialog__close svg:hover {
+  fill: var(--alert-300);
 }
