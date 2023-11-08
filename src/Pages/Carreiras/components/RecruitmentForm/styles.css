@@ -109,6 +109,7 @@
   height: 3.75rem;
   margin: 2rem 1rem 0;
   position: relative;
+  transition: all 0.3s ease-in-out;
   text-transform: uppercase;
   width: 10rem;
 }

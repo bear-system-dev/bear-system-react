@@ -1,6 +1,6 @@
 import videoBg from '../../assets/videos/running_bg2.mp4'
 import { ButtonToRecruitmentForm } from './components/Button'
-import { Form } from './components/Form'
+import { RecruitmentForm } from './components/RecruitmentForm'
 import './styles.css'
 
 export function Carreiras() {
@@ -26,7 +26,7 @@ export function Carreiras() {
       <section className="recruitment-form" id="recruitmentForm">
         <div>
           <h1 className="recruitment-form__title">{formTitle}</h1>
-          <Form />
+          <RecruitmentForm />
         </div>
       </section>
     </main>

@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { SuccessDialog } from '../SuccessDialog'
 import './styles.css'
 
 const contrateFormSchema = z.object({
@@ -48,14 +49,11 @@ const contrateFormSchema = z.object({
     .string()
     .nonempty({ message: 'Por favor digite a sua resposta' }),
   referral: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-  othersReferral: z
-    .string()
-    .nonempty({ message: 'Por favor digite a sua resposta' }),
 })
 
 export type FormProps = z.infer<typeof contrateFormSchema>
 
-export function Form() {
+export function RecruitmentForm() {
   const {
     register,
     handleSubmit,
@@ -121,6 +119,7 @@ export function Form() {
   }
 
   const [showOtherInput, setShowOtherInput] = useState(false)
+  const [openSuccessDialog, setOpenSuccessDialog] = useState(false)
 
   const handleReferralChange = (e: ChangeEvent<HTMLSelectElement>) => {
     if (e.currentTarget.value === 'Outros') {
@@ -134,7 +133,6 @@ export function Form() {
 
   const onSubmit = (data: FormProps) => {
     setIsSubmitting(true)
-    reset()
     emailjs
       .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -147,6 +145,7 @@ export function Form() {
           console.log('E-mail enviado com sucesso:', result.text)
           setIsSubmitting(false)
           reset()
+          setOpenSuccessDialog(true)
         },
         (error) => {
           console.log('Erro ao enviar e-mail:', error.text)
@@ -392,11 +391,11 @@ export function Form() {
               type="text"
               className="recruitment-form__field-input"
               id="othersReferral"
-              {...register('othersReferral', { required: true })}
+              {...register('referral', { required: true })}
             />
-            {errors.othersReferral && (
+            {errors.referral && (
               <span className="recruitment-form__error">
-                {errors.othersReferral.message}
+                {errors.referral.message}
               </span>
             )}
           </div>
@@ -415,6 +414,10 @@ export function Form() {
           'Enviar'
         )}
       </button>
+      <SuccessDialog
+        openSuccessDialog={openSuccessDialog}
+        setOpenSuccessDialog={setOpenSuccessDialog}
+      />
     </form>
   )
 }
