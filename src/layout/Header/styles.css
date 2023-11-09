@@ -12,6 +12,12 @@
   z-index: 10;
 }
 
+.header:focus,
+.navlink:focus,
+.logo:focus {
+  outline: none;
+}
+
 .navlink {
   display: flex;
   justify-content: center;

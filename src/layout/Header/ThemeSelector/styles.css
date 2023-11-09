@@ -7,6 +7,10 @@
   right: 0;
 }
 
+.theme-selector:focus {
+  outline: none ;
+}
+
 .theme-selector svg {
   height: auto;
   width: 2rem;

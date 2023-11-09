@@ -1,14 +1,21 @@
 .dialog-menu__open {
   background-color: transparent;
+  border: none;
   display: none;
   position: absolute;
   left: 2rem;
 }
 
+.dialog-menu__open:focus,
+.dialog-menu-content:focus,
+.dialog-menu__close:focus {
+  border: none;
+  outline: none;
+}
+
 @media screen and (max-width: 1000px) {
   .dialog-menu__open {
     appearance: none;
-    border: none;
     display: block;
     z-index: 99;
   }
