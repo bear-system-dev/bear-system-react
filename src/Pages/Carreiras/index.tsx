@@ -33,8 +33,7 @@ export function Carreiras() {
   )
 }
 
-const formTitle =
-  'Conte-nos um pouco sobre você. Iremos retornar o contato em breve.'
+const formTitle = 'Conte-nos um pouco sobre você.'
 
 const title = 'O próximo passo na sua jornada como desenvolvedor'
 const subtitle =

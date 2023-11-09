@@ -3,8 +3,8 @@
   border: none;
   color: var(--branco);
   cursor: pointer;
-  font-size: 1rem;
-  margin: 7.5rem auto 0;
+  font-size: 1.25rem;
+  margin: 0 auto;
   min-width: 25rem;
   outline: none;
   overflow: hidden;
@@ -48,7 +48,6 @@
 
 @media screen and (max-width: 1000px) {
   .careers-button {
-    margin: 3rem auto 0;
     padding: 1rem;
     min-width: 15rem;
   }
@@ -56,13 +55,12 @@
 
 @media screen and (max-width: 768px) {
   .careers-button {
-    margin: 1.5rem auto 0;
+    font-size: 1rem;
     min-width: 12.5rem;
   }
 
   @media screen and (max-width: 650px) {
     .careers-button {
-      margin: 0 auto;
       min-width: 10rem;
     }
   }
