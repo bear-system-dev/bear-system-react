@@ -138,7 +138,7 @@
 }
 
 .form__error {
-  color: var(--alert);
+  color: var(--alert-500);
   font-size: 0.875rem;
 }
 
