@@ -71,10 +71,12 @@
   }
 
   .case-card__text {
-    padding: 0 auto;
+    padding: 0;
   }
 
   .case-card__description {
+    padding: 0 1rem;
     text-align: justify;
+    word-spacing: -2px;
   }
 }

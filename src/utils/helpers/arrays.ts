@@ -131,7 +131,7 @@ export const CaseList = [
   {
     image: case02,
     title: `Pedro's Pizza`,
-    description: `A Pedro's precisava de uma maneira de melhor organizar e agilizar seus pedidos online. Desenvolvemos um sistema de coleta de pedidos ágil e fácil de utilizar, gerando mais eficiência operacional e resultando indiretamente na melhoria das avaliações da pizzaria.`,
+    description: `A Pedro's precisava de uma maneira de melhor organizar e agilizar seus pedidos online. Desenvolvemos um sistema de coleta de pedidos ágil e fácil de utilizar, gerando mais eficiência operacional e resultando na melhoria das avaliações da pizzaria.`,
   },
   {
     image: case03,
@@ -149,6 +149,6 @@ export const CaseList = [
     image: case05,
     title: 'Café Helena',
     description:
-      'O Café Helena queria melhorar a experiência do cliente. Para isso, implementamos um sistema de pedidos por aplicativo que permitiu aos clientes fazer pedidos antecipadamente para retirada, ou consumo local. A cafeteria percebeu um aumento na satisfação dos clientes e atualmente vendas pelo app representam 73% da receita da cafeteria.',
+      'O Café Helena queria melhorar a experiência do cliente. Para isso, implementamos um sistema de pedidos por aplicativo que permitiu aos clientes fazer pedidos com antecipação para retirada, ou consumo local. A cafeteria percebeu um aumento na satisfação dos clientes e atualmente vendas pelo app representam 73% da receita da cafeteria.',
   },
 ]
