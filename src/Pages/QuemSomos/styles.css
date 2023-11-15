@@ -9,7 +9,7 @@
 .about {
   display: flex;
   flex-direction: column;
-  padding: 5rem 0;
+  padding: 12rem 0 5rem 2rem;
   gap: 2rem;
 }
 

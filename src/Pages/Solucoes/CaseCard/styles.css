@@ -1,0 +1,30 @@
+.case-card {
+  display: flex;
+  height: 38.75rem;
+  justify-content: space-between;
+  margin-top: 6rem;
+  width: 100%;
+}
+
+.case-card__image {
+  width: 32.5rem;
+  object-fit: cover;
+}
+
+.case-card__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6.875rem;
+}
+
+.case-card__title {
+  font-size: 3rem;
+  font-weight: 700;
+  padding: 2rem 0;
+}
+
+.case-card__description {
+  color: var(--cinza-600);
+  font-size: 1.125rem;
+}

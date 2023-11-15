@@ -1,0 +1,59 @@
+.case-card-button-link {
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 1.25rem 0;
+  z-index: 1;
+}
+
+.case-card-button {
+  background-color: var(--branco);
+  border: none;
+  color: var(--verde-500);
+  cursor: pointer;
+  font-size: 0.875rem;
+  min-width: 138px;
+  outline: none;
+  overflow: hidden;
+  padding: 1rem 1.6rem;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 0.4s ease-in-out;
+  z-index: 0;
+}
+
+.case-card-button::before {
+  background-color: var(--verde-500);
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
+}
+
+.case-card-button:hover::before,
+.case-card-button:focus::before {
+  transform: scaleX(1);
+}
+
+.case-card-button:hover,
+.case-card-button:focus {
+  color: var(--branco);
+}
+
+.case-card-button::after {
+  background-color: rgb(0, 135, 95);
+  bottom: -25px;
+  content: "";
+  height: 50px;
+  right: -25px;
+  position: absolute;
+  transform: rotate(45deg);
+  width: 28px;
+}
