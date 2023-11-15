@@ -1,3 +1,4 @@
+import { useIsMobile } from '../../../hooks/useIsMobile'
 import { CaseCardButton } from './components/CaseCardButton'
 import './styles.css'
 
@@ -14,9 +15,11 @@ export function CaseCard({
   title,
   description,
 }: CaseCardProps) {
+  const isMobile = useIsMobile()
+
   return (
     <div className="case-card">
-      {variant === 'even' ? (
+      {variant === 'even' || isMobile ? (
         <>
           <img src={image} alt="Shoe Store" className="case-card__image" />
           <div className="case-card__text">

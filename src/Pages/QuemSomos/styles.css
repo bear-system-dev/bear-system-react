@@ -33,6 +33,10 @@
 }
 
 @media screen and (max-width: 1600px) {
+  .about {
+    padding: 5rem 0;
+  }
+
   .about-container {
     padding: 0 10vw;
   }

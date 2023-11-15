@@ -1,6 +1,6 @@
 .case-card {
   display: flex;
-  height: 38.75rem;
+  max-height: 38.75rem;
   justify-content: space-between;
   margin-top: 6rem;
   width: 100%;
@@ -15,7 +15,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 6.875rem;
+  padding: 0 1rem 0 6.875rem;
 }
 
 .case-card__title {
@@ -27,4 +27,54 @@
 .case-card__description {
   color: var(--cinza-600);
   font-size: 1.125rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .case-card {
+    height: auto;
+  }
+
+  .case-card__text {
+    padding: 0 10% 0 3.5rem;
+  }
+
+  .case-card__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .case-card__image {
+    max-width: 20rem;
+  }
+
+  .case-card__text {
+    padding: 0 1rem 0 2rem;
+  }
+
+  .case-card__title {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .case-card {
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    max-height: none;
+  }
+
+  .case-card__image {
+    height: auto;
+    max-width: 100vw;
+  }
+
+  .case-card__text {
+    padding: 0 auto;
+  }
+
+  .case-card__description {
+    text-align: justify;
+  }
 }
