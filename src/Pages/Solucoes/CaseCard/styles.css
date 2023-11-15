@@ -7,8 +7,8 @@
 }
 
 .case-card__image {
-  width: 32.5rem;
   object-fit: cover;
+  width: 32.5rem;
 }
 
 .case-card__text {

@@ -57,3 +57,32 @@
   transform: rotate(45deg);
   width: 28px;
 }
+
+.dark {
+  .case-card-button {
+    background-color: var(--verde-500);
+  }
+
+  .case-card-button::before {
+    background-color: var(--preto);
+  }
+
+  .case-card-button::after {
+    background-color: var(--preto);
+  }
+}
+
+.bear {
+  .case-card-button {
+    background-color: var(--verde-500);
+    color: var(--branco);
+  }
+
+  .case-card-button::before {
+    background-color: var(--verde-300);
+  }
+
+  .case-card-button::after {
+    background-color: var(--preto);
+  }
+}
