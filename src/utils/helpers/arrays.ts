@@ -130,8 +130,9 @@ export const CaseList = [
   },
   {
     image: case02,
-    title: `Pedro's Pizza`,
-    description: `A Pedro's precisava de uma maneira de melhor organizar e agilizar seus pedidos online. Desenvolvemos um sistema de coleta de pedidos ágil e fácil de utilizar, gerando mais eficiência operacional e resultando na melhoria das avaliações da pizzaria.`,
+    title: 'Casa Napoletana',
+    description:
+      'A Casa Napoletana precisava de uma maneira de melhor organizar e agilizar seus pedidos online. Desenvolvemos um sistema de coleta de pedidos ágil e fácil de utilizar, gerando mais eficiência operacional e resultando na melhoria das avaliações da pizzaria.',
   },
   {
     image: case03,
