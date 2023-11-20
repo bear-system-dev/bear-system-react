@@ -1,0 +1,74 @@
+.clients-container {
+  position: relative;
+}
+
+.clients__title {
+  color: var(--cinza-800);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0 auto;
+  padding: 17vh 0 0;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-text-stroke: .5px;
+}
+
+.clients-container::before {
+  content: "";
+  background-image: url(../../../../assets/images/bg-08.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+  position: absolute;
+}
+
+.client-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 4.75rem;
+  padding: 5rem;
+  width: 100%;
+}
+
+.client-logo__image {
+  height: 12.5rem;
+  width: 12.5rem;
+  z-index: 1;
+}
+
+.client-logo__image:nth-child(odd) {
+  align-self: flex-start;
+}
+
+.client-logo__image:nth-child(even) {
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 1600px) {
+  .clients__background {
+    display: none;
+  }
+}
+
+.dark {
+  .clients-container {
+    background-color: var(--cinza-900);
+  }
+
+  .clients-container::before {
+    opacity: 0.09;
+  }
+}
+
+.bear {
+  .clients-container {
+    background-color: var(--cinza-900);
+  }
+
+  .clients-container::before {
+    opacity: 0.04;
+  }
+}
