@@ -8,49 +8,60 @@ import { ErrorDialog } from '../ErrorDialog'
 import { SuccessDialog } from '../SuccessDialog'
 import './styles.css'
 
-const contrateFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, { message: 'O nome deve conter pelo menos 2 caracteres.' })
-    .regex(/^([a-z\\-]+( [a-z\\-]+)?)$/i, {
-      message: 'Nome deve conter apenas letras.',
-    })
-    .transform((name) =>
-      name.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase()),
+const contrateFormSchema = z
+  .object({
+    name: z
+      .string()
+      .min(2, { message: 'O nome deve conter pelo menos 2 caracteres.' })
+      .regex(/^([a-záéíóúâêôãõçäëïöü]+( [a-záéíóúâêôãõçäëïöü]+)*)$/i, {
+        message: 'Por favor digite um nome válido.',
+      }),
+
+    email: z.string().email({ message: 'Digite um e-mail válido.' }),
+
+    age: z.string().refine(
+      (value) => {
+        const age = parseInt(value)
+        return !isNaN(age) && age >= 5 && age <= 130
+      },
+      { message: 'Digite uma idade válida.' },
     ),
 
-  email: z.string().email({ message: 'Digite um e-mail válido.' }),
+    phone: z
+      .string()
+      .min(14, {
+        message: 'Digite um número de telefone válido.',
+      })
+      .max(15),
 
-  age: z.string().refine(
-    (value) => {
-      const age = parseInt(value)
-      return !isNaN(age) && age >= 5 && age <= 130
+    role: z.string().nonempty({ message: 'Selecione uma opção' }),
+
+    skills: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+    tools: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+    databases: z
+      .string()
+      .nonempty({ message: 'Por favor digite a sua resposta' }),
+    criticism: z
+      .string()
+      .nonempty({ message: 'Por favor digite a sua resposta' }),
+    strengths: z
+      .string()
+      .nonempty({ message: 'Por favor digite a sua resposta' }),
+    referral: z.string().nonempty({ message: 'Selecione uma opção' }),
+    othersReferral: z.string(),
+  })
+  .refine(
+    (data) => {
+      if (data.referral === 'Outros') {
+        return data.othersReferral.trim().length > 0
+      }
+      return true
     },
-    { message: 'Digite uma idade válida.' },
-  ),
-
-  phone: z
-    .string()
-    .min(14, {
-      message: 'Digite um número de telefone válido.',
-    })
-    .max(15),
-
-  role: z.string().nonempty({ message: 'Selecione uma opção' }),
-
-  skills: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-  tools: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-  databases: z
-    .string()
-    .nonempty({ message: 'Por favor digite a sua resposta' }),
-  criticism: z
-    .string()
-    .nonempty({ message: 'Por favor digite a sua resposta' }),
-  strengths: z
-    .string()
-    .nonempty({ message: 'Por favor digite a sua resposta' }),
-  referral: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-})
+    {
+      message: 'Por favor digite a sua resposta',
+      path: ['othersReferral'],
+    },
+  )
 
 export type FormProps = z.infer<typeof contrateFormSchema>
 
@@ -394,11 +405,11 @@ export function RecruitmentForm() {
               type="text"
               className="recruitment-form__field-input"
               id="othersReferral"
-              {...register('referral', { required: true })}
+              {...register('othersReferral', { required: true })}
             />
-            {errors.referral && (
+            {errors.othersReferral && (
               <span className="recruitment-form__error">
-                {errors.referral.message}
+                {errors.othersReferral.message}
               </span>
             )}
           </div>
