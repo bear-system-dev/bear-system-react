@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import logoDarkMode from '../../assets/images/logo-dark-mode.svg'
 import logo from '../../assets/images/logo.svg'
+import { JoyrideGuideHelper } from '../../components/Joyride'
 import { useIsMobile } from '../../hooks/useIsMobile'
 import { useTheme } from '../../hooks/useTheme/useTheme'
 import { Navbar } from '../Navbar'
@@ -24,6 +25,7 @@ export function Header() {
       </NavLink>
       {!isMobile && <Navbar />}
       <ThemeSelector />
+      <JoyrideGuideHelper />
     </header>
   )
 }

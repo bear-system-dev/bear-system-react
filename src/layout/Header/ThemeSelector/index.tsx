@@ -19,10 +19,12 @@ export function ThemeSelector() {
   }
 
   return (
-    <button className="theme-selector" onClick={toogleTheme}>
-      {theme === Theme.Light && <MoonStars weight="thin" />}
-      {theme === Theme.Dark && <PawPrint weight="thin" />}
-      {theme === Theme.Bear && <Lightbulb weight="thin" />}
-    </button>
+    <div className="theme-selector__container">
+      <button className="theme-selector" onClick={toogleTheme}>
+        {theme === Theme.Light && <MoonStars weight="thin" />}
+        {theme === Theme.Dark && <PawPrint weight="thin" />}
+        {theme === Theme.Bear && <Lightbulb weight="thin" />}
+      </button>
+    </div>
   )
 }

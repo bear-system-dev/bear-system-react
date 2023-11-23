@@ -32,6 +32,8 @@
 
 @media screen and (max-width: 1200px) {
   .header {
+    justify-content: flex-start;
+    gap: 2rem;
     padding: 0 2rem;
   }
 }
