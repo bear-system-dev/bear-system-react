@@ -55,9 +55,7 @@
   }
 
   .logo {
-    left: 22.5vw;
     max-width: 10rem;
-    position: fixed;
   }
 }
 
