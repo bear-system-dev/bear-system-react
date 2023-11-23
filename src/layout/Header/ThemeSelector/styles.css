@@ -1,15 +1,8 @@
-.theme-selector__container{
-  position: absolute;
-  right: 1.5vw;
-  width: fit-content;
-}
-
 .theme-selector {
   background-color: transparent !important;
   border: none;
   cursor: pointer;
   padding: 0;
-  position: relative;
   width: fit-content;
 }
 

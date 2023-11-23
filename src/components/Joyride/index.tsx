@@ -139,7 +139,10 @@ export function JoyrideGuideHelper() {
   }
 
   return (
-    <button className="help__button" onClick={handleClickStart}>
+    <>
+      <button className="help__button" onClick={handleClickStart}>
+        {isMobile ? <Question weight="light" /> : 'ajuda'}
+      </button>
       <Joyride
         callback={handleJoyrideCallback}
         continuous
@@ -154,12 +157,11 @@ export function JoyrideGuideHelper() {
             backgroundColor: '#F2F2F2',
             primaryColor: '#00875f',
             textColor: '#121214',
-            width: 300,
+            width: 260,
             zIndex: 1000,
           },
         }}
       />
-      {isMobile ? <Question weight="light" /> : 'ajuda'}
-    </button>
+    </>
   )
 }

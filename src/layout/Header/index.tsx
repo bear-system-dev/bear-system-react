@@ -24,8 +24,10 @@ export function Header() {
         />
       </NavLink>
       {!isMobile && <Navbar />}
-      <ThemeSelector />
-      <JoyrideGuideHelper />
+      <div className="help-and-theme-controls">
+        <JoyrideGuideHelper />
+        <ThemeSelector />
+      </div>
     </header>
   )
 }

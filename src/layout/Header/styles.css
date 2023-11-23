@@ -24,6 +24,11 @@
   align-items: center;
 }
 
+.help-and-theme-controls {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+
 @media screen and (max-width: 1600px) {
   .header {
     padding: 0 10vw;
@@ -42,7 +47,7 @@
 @media screen and (max-width: 1000px) {
   .header {
     justify-content: center;
-    padding: 0;
+    padding: 0 1.25rem;
   }
 }
 
@@ -52,7 +57,9 @@
   }
 
   .logo {
+    left: 22.5vw;
     max-width: 10rem;
+    position: fixed;
   }
 }
 

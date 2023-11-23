@@ -5,8 +5,6 @@
   cursor: pointer;
   font-size: 0.75rem;
   letter-spacing: 1.5px;
-  position: absolute;
-  right: 4vw;
   text-transform: uppercase;
   transition: all 0.3s ease-in-out;
 }
@@ -23,30 +21,6 @@
 
 .help__button svg:hover {
   fill: var(--verde-500);
-}
-
-@media  screen and (max-width: 1200px) {
-  .help__button {
-    right: 5vw;
-  }
-}
-
-@media  screen and (max-width: 1000px) {
-  .help__button {
-    right: 7vw;
-  }
-}
-
-@media  screen and (max-width: 768px) {
-  .help__button {
-    right: 8vw;
-  }
-}
-
-@media  screen and (max-width: 650px) {
-  .help__button {
-    right: 9vw;
-  }
 }
 
 .dark {
