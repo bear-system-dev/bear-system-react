@@ -29,15 +29,14 @@
   gap: 0.25rem;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1700px) {
   .header {
     padding: 0 10vw;
   }  
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
   .header {
-    justify-content: flex-start;
     gap: 2rem;
     padding: 0 2rem;
   }
@@ -46,7 +45,6 @@
 
 @media screen and (max-width: 1000px) {
   .header {
-    justify-content: center;
     padding: 0 1.25rem;
   }
 }
