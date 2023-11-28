@@ -1,5 +1,5 @@
 import { Question } from '@phosphor-icons/react'
-import { MouseEvent, useState } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 import Joyride, { CallBackProps, STATUS, Step } from 'react-joyride'
 import { useIsMobile } from '../../hooks/useIsMobile'
 import { Theme, useTheme } from '../../hooks/useTheme/useTheme'
@@ -17,18 +17,20 @@ if (typeof window !== 'undefined') {
 export function JoyrideGuideHelper() {
   const isMobile = useIsMobile()
 
+  const isUserFirstVisit = localStorage.getItem('firstVisit') === null
+
   const [{ run, steps }, setState] = useState<State>({
     run: false,
     steps: [
       {
-        content: 'Vamos te ajudar!',
+        content: isUserFirstVisit ? 'Vamos começar?' : 'Vamos te ajudar!',
         locale: {
           next: <strong aria-label="iniciar">Iniciar</strong>,
           skip: <strong aria-label="pular">Pular</strong>,
         },
         placement: 'center',
         target: 'body',
-        title: 'Está com dúvidas?',
+        title: isUserFirstVisit ? 'Bem-vindo!' : 'Está com dúvidas?',
       },
       {
         content: 'Clique no botão para alternar entre os temas',
@@ -137,6 +139,14 @@ export function JoyrideGuideHelper() {
       setState((prevState) => ({ ...prevState, run: false }))
     }
   }
+
+  useEffect(() => {
+    if (isUserFirstVisit) {
+      setState((prevState) => ({ ...prevState, run: true }))
+
+      localStorage.setItem('firstVisit', 'false')
+    }
+  }, [isUserFirstVisit])
 
   return (
     <>
