@@ -47,6 +47,9 @@ const contrateFormSchema = z
     strengths: z
       .string()
       .nonempty({ message: 'Por favor digite a sua resposta' }),
+    challenge: z
+      .string()
+      .nonempty({ message: 'Por favor digite a sua resposta' }),
     referral: z.string().nonempty({ message: 'Selecione uma opção' }),
     othersReferral: z.string(),
   })
@@ -247,7 +250,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="skills">
             <span>
               Quais tecnologias e linguagens de programação você domina?
             </span>
@@ -266,7 +269,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="needs">
+          <label className="recruitment-form__field-label" htmlFor="role">
             <span>Qual área de desenvolvimento você prefere?</span>
           </label>
           <select
@@ -291,7 +294,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="tools">
             <span>
               Você utiliza algum framework ou ferramenta para facilitar o
               desenvolvimento de software?
@@ -311,7 +314,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="databases">
             <span>
               Você tem familiaridade com bancos de dados? (MySQL, PostgreSQL,
               SQLite, MongoDB, ScyllaDB, etc.). Se sim, quais?
@@ -331,7 +334,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="criticism">
             <span>
               Como você lida com feedbacks construtivos e críticas em relação ao
               seu trabalho?
@@ -350,7 +353,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="strengths">
             <span>
               Por quê você acredita que seria uma boa adição à nossa equipe de
               desenvolvimento de software?
@@ -364,6 +367,28 @@ export function RecruitmentForm() {
           {errors.strengths && (
             <span className="recruitment-form__error">
               {errors.strengths.message}
+            </span>
+          )}
+        </div>
+
+        <div className="recruitment-form__field-container">
+          <label className="recruitment-form__field-label" htmlFor="challenge">
+            <span>
+              Desafiamos você a conceber uma ideia inovadora para um software,
+              seja no âmbito de ferramentas online, automação, utilidade pública
+              ou doméstica. Vale até mesmo algo teoricamente inviável. Sua
+              imaginação e sua criatividade são os únicos limites neste desafio
+              proposto por nós.
+            </span>
+          </label>
+          <textarea
+            className="recruitment-form__field-textarea"
+            id="challenge"
+            {...register('challenge', { required: true })}
+          />
+          {errors.challenge && (
+            <span className="recruitment-form__error">
+              {errors.challenge.message}
             </span>
           )}
         </div>
