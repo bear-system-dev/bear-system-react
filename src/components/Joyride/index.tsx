@@ -109,13 +109,24 @@ export function JoyrideGuideHelper() {
 
   const handleClickStart = (event: MouseEvent<HTMLElement>) => {
     event.preventDefault()
-
     setState((prevState) => ({ ...prevState, run: true }))
   }
 
   const handleJoyrideCallback = (data: CallBackProps) => {
-    const { status, step, type } = data
+    const { status, type, step } = data
     const finishedStatuses: string[] = [STATUS.FINISHED, STATUS.SKIPPED]
+
+    const userOriginalTheme = localStorage.getItem('theme') || Theme.Light
+
+    const userSavedOriginalTheme = localStorage.getItem('theme-backup')
+
+    if (type === 'step:before' && step.title === 'Tema claro') {
+      if (!localStorage.getItem('theme-backup')) {
+        localStorage.setItem('theme-backup', userOriginalTheme)
+      }
+      setTheme(Theme.Light)
+      localStorage.setItem('theme', Theme.Light)
+    }
 
     if (type === 'step:before' && step.title === 'Tema escuro') {
       setTheme(Theme.Dark)
@@ -127,15 +138,15 @@ export function JoyrideGuideHelper() {
       localStorage.setItem('theme', Theme.Bear)
     }
 
-    if (
-      (type === 'step:before' && step.title === 'Tema claro') ||
-      (type === 'step:before' && step.title === 'Pronto para continuar?')
-    ) {
-      setTheme(Theme.Light)
-      localStorage.setItem('theme', Theme.Light)
+    if (type === 'step:before' && step.title === 'Pronto para continuar?') {
+      if (userSavedOriginalTheme) {
+        setTheme(userSavedOriginalTheme as Theme)
+        localStorage.setItem('theme', userSavedOriginalTheme)
+      }
     }
 
     if (finishedStatuses.includes(status)) {
+      localStorage.removeItem('theme-backup')
       setState((prevState) => ({ ...prevState, run: false }))
     }
   }
@@ -143,7 +154,6 @@ export function JoyrideGuideHelper() {
   useEffect(() => {
     if (isUserFirstVisit) {
       setState((prevState) => ({ ...prevState, run: true }))
-
       localStorage.setItem('firstVisit', 'false')
     }
   }, [isUserFirstVisit])
