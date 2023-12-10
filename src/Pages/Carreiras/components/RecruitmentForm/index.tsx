@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SpinnerGap } from '@phosphor-icons/react'
-import emailjs from 'emailjs-com'
+import axios from 'axios'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -8,63 +8,50 @@ import { ErrorDialog } from '../ErrorDialog'
 import { SuccessDialog } from '../SuccessDialog'
 import './styles.css'
 
-const contrateFormSchema = z
-  .object({
-    name: z
-      .string()
-      .min(2, { message: 'O nome deve conter pelo menos 2 caracteres.' })
-      .regex(/^([a-záéíóúâêôãõçäëïöü]+( [a-záéíóúâêôãõçäëïöü]+)*)$/i, {
-        message: 'Por favor digite um nome válido.',
-      }),
+const contrateFormSchema = z.object({
+  name: z
+    .string()
+    .min(2, { message: 'O nome deve conter pelo menos 2 caracteres.' })
+    .regex(/^([a-záéíóúâêôãõçäëïöü]+( [a-záéíóúâêôãõçäëïöü]+)*)$/i, {
+      message: 'Por favor digite um nome válido.',
+    }),
 
-    email: z.string().email({ message: 'Digite um e-mail válido.' }),
+  email: z.string().email({ message: 'Digite um e-mail válido.' }),
 
-    age: z.string().refine(
-      (value) => {
-        const age = parseInt(value)
-        return !isNaN(age) && age >= 5 && age <= 130
-      },
-      { message: 'Digite uma idade válida.' },
-    ),
-
-    phone: z
-      .string()
-      .min(14, {
-        message: 'Digite um número de telefone válido.',
-      })
-      .max(15),
-
-    role: z.string().nonempty({ message: 'Selecione uma opção' }),
-
-    skills: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-    tools: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-    databases: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    criticism: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    strengths: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    challenge: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    referral: z.string().nonempty({ message: 'Selecione uma opção' }),
-    othersReferral: z.string(),
-  })
-  .refine(
-    (data) => {
-      if (data.referral === 'Outros') {
-        return data.othersReferral.trim().length > 0
-      }
-      return true
+  age: z.string().refine(
+    (value) => {
+      const age = parseInt(value)
+      return !isNaN(age) && age >= 5 && age <= 130
     },
-    {
-      message: 'Por favor digite a sua resposta',
-      path: ['othersReferral'],
-    },
-  )
+    { message: 'Digite uma idade válida.' },
+  ),
+
+  phone: z
+    .string()
+    .min(14, {
+      message: 'Digite um número de telefone válido.',
+    })
+    .max(15),
+
+  role: z.string().nonempty({ message: 'Selecione uma opção' }),
+
+  skills: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+  tools: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+  databases: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  criticism: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  strengths: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  challenge: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  referral: z.string().nonempty({ message: 'Selecione uma opção' }),
+  othersReferral: z.string().optional(),
+})
 
 export type FormProps = z.infer<typeof contrateFormSchema>
 
@@ -147,28 +134,23 @@ export function RecruitmentForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const onSubmit = (data: FormProps) => {
+  const onSubmit = async (data: FormProps) => {
     setIsSubmitting(true)
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        data,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(
-        (result) => {
-          console.log('E-mail enviado com sucesso:', result.text)
-          setIsSubmitting(false)
-          reset()
-          setOpenSuccessDialog(true)
+
+    try {
+      await axios.post(import.meta.env.VITE_RESEND_API_URL, data, {
+        headers: {
+          'Content-Type': 'application/json',
         },
-        (error) => {
-          console.log('Erro ao enviar e-mail:', error.text)
-          setIsSubmitting(false)
-          setOpenErrorDialog(true)
-        },
-      )
+      })
+      setIsSubmitting(false)
+      reset()
+      setOpenSuccessDialog(true)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setIsSubmitting(false)
+      setOpenErrorDialog(true)
+    }
   }
 
   return (
