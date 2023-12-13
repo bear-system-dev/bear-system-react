@@ -2,9 +2,8 @@
   background-color: transparent !important;
   border: none;
   cursor: pointer;
-  padding: 0 2rem;
-  position: absolute;
-  right: 0;
+  padding: 0;
+  width: fit-content;
 }
 
 .theme-selector:focus {
@@ -14,29 +13,11 @@
 .theme-selector svg {
   height: auto;
   transition: all 0.3s ease-in-out;
-  width: 2rem;
+  width: 1.5rem;
 }
 
 .theme-selector svg:hover {
   fill: var(--verde-500);
-}
-
-@media screen and (max-width: 1200px){
-  .theme-selector {
-    position: relative;
-    padding: 0 0.5rem;
-  }
-
-  .theme-selector svg {
-    width: 1.5rem;
-  }
-}
-
-@media screen and (max-width: 1000px){
-  .theme-selector {
-    position: absolute;
-    padding: 0 2rem;
-  }
 }
 
 .bear {

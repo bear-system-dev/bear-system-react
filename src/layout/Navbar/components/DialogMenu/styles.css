@@ -2,8 +2,6 @@
   background-color: transparent;
   border: none;
   display: none;
-  position: absolute;
-  left: 2rem;
 }
 
 .dialog-menu__open:focus,

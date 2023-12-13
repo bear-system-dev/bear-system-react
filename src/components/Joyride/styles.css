@@ -1,0 +1,44 @@
+.help__button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.help__button:hover {
+  color: var(--verde-500);
+}
+
+.help__button svg {
+  fill: var(--cinza-700);
+  height: auto;
+  width: 1.5rem;
+}
+
+.help__button svg:hover {
+  fill: var(--verde-500);
+}
+
+.dark {
+  .help__button svg {
+    fill: var(--cinza-200);
+  }
+}
+
+.bear {
+  .help__button {
+    color: var(--verde-500);
+  }
+
+  .help__button svg {
+    fill: var(--verde-500);
+  }
+
+  .help__button svg:hover {
+    fill: var(--verde-300);
+  }
+}

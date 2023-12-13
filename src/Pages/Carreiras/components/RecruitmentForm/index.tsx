@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { SpinnerGap } from '@phosphor-icons/react'
-import emailjs from 'emailjs-com'
+import axios from 'axios'
 import { ChangeEvent, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -8,60 +8,50 @@ import { ErrorDialog } from '../ErrorDialog'
 import { SuccessDialog } from '../SuccessDialog'
 import './styles.css'
 
-const contrateFormSchema = z
-  .object({
-    name: z
-      .string()
-      .min(2, { message: 'O nome deve conter pelo menos 2 caracteres.' })
-      .regex(/^([a-záéíóúâêôãõçäëïöü]+( [a-záéíóúâêôãõçäëïöü]+)*)$/i, {
-        message: 'Por favor digite um nome válido.',
-      }),
+const contrateFormSchema = z.object({
+  name: z
+    .string()
+    .min(2, { message: 'O nome deve conter pelo menos 2 caracteres.' })
+    .regex(/^([a-záéíóúâêôãõçäëïöü]+( [a-záéíóúâêôãõçäëïöü]+)*)$/i, {
+      message: 'Por favor digite um nome válido.',
+    }),
 
-    email: z.string().email({ message: 'Digite um e-mail válido.' }),
+  email: z.string().email({ message: 'Digite um e-mail válido.' }),
 
-    age: z.string().refine(
-      (value) => {
-        const age = parseInt(value)
-        return !isNaN(age) && age >= 5 && age <= 130
-      },
-      { message: 'Digite uma idade válida.' },
-    ),
-
-    phone: z
-      .string()
-      .min(14, {
-        message: 'Digite um número de telefone válido.',
-      })
-      .max(15),
-
-    role: z.string().nonempty({ message: 'Selecione uma opção' }),
-
-    skills: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-    tools: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
-    databases: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    criticism: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    strengths: z
-      .string()
-      .nonempty({ message: 'Por favor digite a sua resposta' }),
-    referral: z.string().nonempty({ message: 'Selecione uma opção' }),
-    othersReferral: z.string(),
-  })
-  .refine(
-    (data) => {
-      if (data.referral === 'Outros') {
-        return data.othersReferral.trim().length > 0
-      }
-      return true
+  age: z.string().refine(
+    (value) => {
+      const age = parseInt(value)
+      return !isNaN(age) && age >= 5 && age <= 130
     },
-    {
-      message: 'Por favor digite a sua resposta',
-      path: ['othersReferral'],
-    },
-  )
+    { message: 'Digite uma idade válida.' },
+  ),
+
+  phone: z
+    .string()
+    .min(14, {
+      message: 'Digite um número de telefone válido.',
+    })
+    .max(15),
+
+  role: z.string().nonempty({ message: 'Selecione uma opção' }),
+
+  skills: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+  tools: z.string().nonempty({ message: 'Por favor digite a sua resposta' }),
+  databases: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  criticism: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  strengths: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  challenge: z
+    .string()
+    .nonempty({ message: 'Por favor digite a sua resposta' }),
+  referral: z.string().nonempty({ message: 'Selecione uma opção' }),
+  othersReferral: z.string().optional(),
+})
 
 export type FormProps = z.infer<typeof contrateFormSchema>
 
@@ -144,28 +134,23 @@ export function RecruitmentForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const onSubmit = (data: FormProps) => {
+  const onSubmit = async (data: FormProps) => {
     setIsSubmitting(true)
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        data,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(
-        (result) => {
-          console.log('E-mail enviado com sucesso:', result.text)
-          setIsSubmitting(false)
-          reset()
-          setOpenSuccessDialog(true)
+
+    try {
+      await axios.post(import.meta.env.VITE_RESEND_API_URL, data, {
+        headers: {
+          'Content-Type': 'application/json',
         },
-        (error) => {
-          console.log('Erro ao enviar e-mail:', error.text)
-          setIsSubmitting(false)
-          setOpenErrorDialog(true)
-        },
-      )
+      })
+      setIsSubmitting(false)
+      reset()
+      setOpenSuccessDialog(true)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setIsSubmitting(false)
+      setOpenErrorDialog(true)
+    }
   }
 
   return (
@@ -247,7 +232,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="skills">
             <span>
               Quais tecnologias e linguagens de programação você domina?
             </span>
@@ -266,7 +251,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="needs">
+          <label className="recruitment-form__field-label" htmlFor="role">
             <span>Qual área de desenvolvimento você prefere?</span>
           </label>
           <select
@@ -291,7 +276,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="tools">
             <span>
               Você utiliza algum framework ou ferramenta para facilitar o
               desenvolvimento de software?
@@ -311,7 +296,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="databases">
             <span>
               Você tem familiaridade com bancos de dados? (MySQL, PostgreSQL,
               SQLite, MongoDB, ScyllaDB, etc.). Se sim, quais?
@@ -331,7 +316,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="criticism">
             <span>
               Como você lida com feedbacks construtivos e críticas em relação ao
               seu trabalho?
@@ -350,7 +335,7 @@ export function RecruitmentForm() {
         </div>
 
         <div className="recruitment-form__field-container">
-          <label className="recruitment-form__field-label" htmlFor="name">
+          <label className="recruitment-form__field-label" htmlFor="strengths">
             <span>
               Por quê você acredita que seria uma boa adição à nossa equipe de
               desenvolvimento de software?
@@ -364,6 +349,28 @@ export function RecruitmentForm() {
           {errors.strengths && (
             <span className="recruitment-form__error">
               {errors.strengths.message}
+            </span>
+          )}
+        </div>
+
+        <div className="recruitment-form__field-container">
+          <label className="recruitment-form__field-label" htmlFor="challenge">
+            <span>
+              Desafiamos você a conceber uma ideia inovadora para um software,
+              seja no âmbito de ferramentas online, automação, utilidade pública
+              ou doméstica. Vale até mesmo algo teoricamente inviável. Sua
+              imaginação e sua criatividade são os únicos limites neste desafio
+              proposto por nós.
+            </span>
+          </label>
+          <textarea
+            className="recruitment-form__field-textarea"
+            id="challenge"
+            {...register('challenge', { required: true })}
+          />
+          {errors.challenge && (
+            <span className="recruitment-form__error">
+              {errors.challenge.message}
             </span>
           )}
         </div>
