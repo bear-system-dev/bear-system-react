@@ -154,7 +154,7 @@ export function RecruitmentForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <div className="recruitment-form__fields-line">
         <div className="recruitment-form__field-container">
           <label className="recruitment-form__field-label" htmlFor="name">
